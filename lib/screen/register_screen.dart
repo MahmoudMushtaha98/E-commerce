@@ -1,3 +1,4 @@
+import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/button_widget.dart';
@@ -15,17 +16,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            width: width,
-            height: height*0.1,
-            color: Colors.grey,
-          ),
-          Row(
-            children: [
-              IconButton(onPressed: () {
-              }, icon: const Icon(Icons.arrow_back_outlined,color: Colors.black,)),
-            ],
-          ),
+          HeaderWidget(width: width, height: height),
           const SizedBox(height: 30,),
           const Text('Register Account',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
           SizedBox(

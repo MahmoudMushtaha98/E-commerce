@@ -1,6 +1,8 @@
 
 
+import 'package:evgo/screen/otp_screen.dart';
 import 'package:evgo/widget/button_widget.dart';
+import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
@@ -14,21 +16,7 @@ class CompleteProfileScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              Container(
-                width: width,
-                height: height*0.1,
-                color: Colors.grey,
-              ),
-              Row(
-                children: [
-                  IconButton(onPressed: () {
-                  }, icon: const Icon(Icons.arrow_back_outlined,color: Colors.black,)),
-                ],
-              ),
-            ],
-          ),
+          HeaderWidget(width: width, height: height),
           Column(
             children: [
               const SizedBox(height: 30,),
@@ -50,7 +38,7 @@ class CompleteProfileScreen extends StatelessWidget {
               buildTextFormField(width,'Address', Icons.location_on_outlined,'Enter your phone address'),
               SizedBox(height: height*0.05,),
               ButtonWidget(width: width,callBack: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => CompleteProfileScreen(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(),));
               },),
             ],
           ),
@@ -63,6 +51,7 @@ class CompleteProfileScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
+              SizedBox(height: 10,)
             ],
           )
         ],
