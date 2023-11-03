@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:evgo/screen/login_screen.dart';
 import 'package:evgo/screen/register_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(),));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
     });
   }
 
