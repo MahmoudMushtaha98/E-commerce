@@ -1,4 +1,5 @@
 import 'package:evgo/screen/forgot_screen.dart';
+import 'package:evgo/screen/register_screen.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
@@ -47,7 +48,9 @@ class LoginScreen extends StatelessWidget {
 
                   TextButton(onPressed: () {
 
-                  }, child: const Text('Forgot password', style: TextStyle(color: Colors.grey),))
+                  }, child: InkWell(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordWidget(),)),
+                      child: const Text('Forgot password', style: TextStyle(color: Colors.grey),)))
                 ],
               ),
               SizedBox(height: height*0.03,),
@@ -76,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                   const Text("Don't have an account? ",style: TextStyle(color: Colors.grey)),
                   InkWell(
                       child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange)),
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordWidget(),)),
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),)),
                   ),
                 ],
               )
