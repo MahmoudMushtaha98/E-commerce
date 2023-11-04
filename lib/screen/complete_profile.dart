@@ -38,7 +38,7 @@ class CompleteProfileScreen extends StatelessWidget {
               buildTextFormField(width,'Address', Icons.location_on_outlined,'Enter your phone address'),
               SizedBox(height: height*0.05,),
               ButtonWidget(width: width,callBack: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
               },),
             ],
           ),
@@ -51,7 +51,7 @@ class CompleteProfileScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 10,)
+              const SizedBox(height: 10,)
             ],
           )
         ],

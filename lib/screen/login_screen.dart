@@ -5,10 +5,15 @@ import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-   LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
-  bool isChicked=false;
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool isChecked=false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +46,17 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment:MainAxisAlignment.spaceAround,
                 children: [
-                  Row(children: [Checkbox(value: isChicked, onChanged: (value) {
-
+                  Row(children: [Checkbox(value: isChecked, onChanged: (value) {
+                    setState(() {
+                      isChecked = !isChecked;
+                    });
                   },),
                     const Text('Remember me'),],),
 
                   TextButton(onPressed: () {
 
                   }, child: InkWell(
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordWidget(),)),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordWidget(),)),
                       child: const Text('Forgot password', style: TextStyle(color: Colors.grey),)))
                 ],
               ),
@@ -73,19 +80,19 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: height*0.03,),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Don't have an account? ",style: TextStyle(color: Colors.grey)),
                   InkWell(
-                      child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange)),
+                    child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange)),
                     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),)),
                   ),
                 ],
               )
             ],
           ),
-          SizedBox()
+          const SizedBox()
         ],
       ),
     );
@@ -93,7 +100,10 @@ class LoginScreen extends StatelessWidget {
 }
 
 
-SizedBox buildTextFormField(double width, String hintText,IconData iconData,String leabel) {
+SizedBox buildTextFormField(double width,
+    String hintText,
+    IconData iconData,
+    String label) {
   return SizedBox(
     width: width*0.9,
     child: TextFormField(
@@ -104,7 +114,7 @@ SizedBox buildTextFormField(double width, String hintText,IconData iconData,Stri
             borderSide: const BorderSide(color: Colors.grey)
         ),
         label: Text(hintText),
-        hintText: leabel,
+        hintText: label,
         suffixIcon: Icon(iconData),
         contentPadding: const EdgeInsets.only(left: 30,top: 40),
       ),

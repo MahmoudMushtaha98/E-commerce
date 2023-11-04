@@ -39,7 +39,7 @@ class ForgotPasswordWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox()
+          const SizedBox()
         ],
       ),
     );

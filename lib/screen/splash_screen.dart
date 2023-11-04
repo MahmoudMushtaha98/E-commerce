@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:evgo/screen/login_screen.dart';
-import 'package:evgo/screen/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -38,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: Colors.grey,
                 ),
                 SizedBox(height: height*0.05,),
-                Text('TOKOTO', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.deepOrange)),
-                Text("Welcome to Tokoto, let's shop!",style: TextStyle(color: Colors.grey),),
+                const Text('TOKOTO', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.deepOrange)),
+                const Text("Welcome to Tokoto, let's shop!",style: TextStyle(color: Colors.grey),),
                 SizedBox(height: height*0.1,)
               ],
             ),
