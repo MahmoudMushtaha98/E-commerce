@@ -16,7 +16,7 @@ class OtpScreen extends StatelessWidget {
           HeaderWidget(width: width, height: height),
           Column(
             children: [
-              Text('OTP Verfication',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
+              const Text('OTP Verfication',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
               SizedBox(
                 width: width*0.55,
                 child: const Text.rich(

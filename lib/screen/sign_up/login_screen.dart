@@ -1,5 +1,6 @@
-import 'package:evgo/screen/forgot_screen.dart';
-import 'package:evgo/screen/register_screen.dart';
+
+import 'package:evgo/screen/sign_up/forgot_screen.dart';
+import 'package:evgo/screen/sign_up/register_screen.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';

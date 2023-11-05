@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:evgo/screen/login_screen.dart';
+import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

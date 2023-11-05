@@ -1,9 +1,8 @@
-import 'package:evgo/screen/register_screen.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widget/button_widget.dart';
+import '../../widget/button_widget.dart';
 import 'complete_profile.dart';
 
 class RegisterScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 
 
-import 'package:evgo/screen/otp_screen.dart';
+import 'package:evgo/screen/sign_up/otp_screen.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
