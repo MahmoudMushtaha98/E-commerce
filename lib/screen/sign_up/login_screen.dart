@@ -1,10 +1,12 @@
 
+import 'package:evgo/screen/home/home_screen.dart';
 import 'package:evgo/screen/sign_up/forgot_screen.dart';
 import 'package:evgo/screen/sign_up/register_screen.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -63,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: height*0.03,),
               ButtonWidget(width: width, callBack: () {
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
               },),
             ],
           ),
