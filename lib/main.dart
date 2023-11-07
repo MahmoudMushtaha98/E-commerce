@@ -14,10 +14,15 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarColor: Colors.grey
     ));
-    return const MaterialApp(
+
+    return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(fontFamily:'MyFont' )
+        )
+      ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-
     );
   }
 }

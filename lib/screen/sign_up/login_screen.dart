@@ -2,6 +2,7 @@
 import 'package:evgo/screen/home/home_screen.dart';
 import 'package:evgo/screen/sign_up/forgot_screen.dart';
 import 'package:evgo/screen/sign_up/register_screen.dart';
+import 'package:evgo/widget/buildtextformfield.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
@@ -30,7 +31,11 @@ class _LoginScreenState extends State<LoginScreen> {
           Column(
             children: [
               const SizedBox(height: 30,),
-              const Text('Welcome Back',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+              const Text('Welcome Back',style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                fontFamily: 'MyFont'
+              ),),
               SizedBox(
                 width: width*0.55,
                 child: const Text('Sign in with your email and password or continue with social media',
@@ -42,9 +47,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Column(
             children: [
-              buildTextFormField(width, 'Email', Icons.email_outlined, 'Enter your email'),
+              BuildTextFormField(width: width, hintText:'Email', iconData:Icons.email_outlined,label:'Enter your email'),
               SizedBox(height:height *0.04,),
-              buildTextFormField(width, 'password', Icons.lock_outline, 'Enter your password'),
+              BuildTextFormField(width: width, hintText: 'password', iconData:Icons.lock_outline, label:'Enter your password'),
               SizedBox(height: height*0.03,),
               Row(
                 mainAxisAlignment:MainAxisAlignment.spaceAround,
@@ -74,11 +79,11 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleWidget(width: width,url: 'images/google.webp',),
+                  CircleWidget(width: width,url: 'assets/images/google.webp',),
                   SizedBox(width: width*0.05,),
-                  CircleWidget(width: width,url: 'images/unnamed.png',),
+                  CircleWidget(width: width,url: 'assets/images/unnamed.png',),
                   SizedBox(width: width*0.05,),
-                  CircleWidget(width: width,url: 'images/Logo_of_Twitter.svg.webp',)
+                  CircleWidget(width: width,url: 'assets/images/Logo_of_Twitter.svg.webp',)
 
                 ],
               ),
@@ -102,26 +107,4 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-
-SizedBox buildTextFormField(double width,
-    String hintText,
-    IconData iconData,
-    String label) {
-  return SizedBox(
-    width: width*0.9,
-    child: TextFormField(
-      decoration: InputDecoration(
-        floatingLabelBehavior:FloatingLabelBehavior.always ,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Colors.grey)
-        ),
-        label: Text(hintText),
-        hintText: label,
-        suffixIcon: Icon(iconData),
-        contentPadding: const EdgeInsets.only(left: 30,top: 40),
-      ),
-    ),
-  );
-}
 

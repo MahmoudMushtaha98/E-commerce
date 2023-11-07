@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 SizedBox(height: height*0.1,)
               ],
             ),
-            Image.asset('images/splash_1.png'),
+            Image.asset('assets/images/splash_1.png'),
 
           ],
         )
