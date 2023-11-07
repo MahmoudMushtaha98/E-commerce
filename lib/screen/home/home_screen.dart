@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,6 +12,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentPageIndex = 0;
+
+
+  Widget setIcon(String path){
+    return SvgPicture.asset(
+        path,
+        semanticsLabel: 'Acme Logo'
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +32,21 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         indicatorColor: Colors.amber[800],
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
+        destinations: [
           NavigationDestination(
-            selectedIcon: Icon(Icons.store),
-            icon: Icon(Icons.home_outlined),
+            icon: setIcon('assets/Shop Icon.svg'),
             label: 'Home',
           ),
-          NavigationDestination(
+          const NavigationDestination(
             icon: Icon(Icons.business),
             label: 'Business',
           ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.school),
+          const NavigationDestination(
             icon: Icon(Icons.school_outlined),
+            label: 'School',
+          ),
+          const NavigationDestination(
+            icon: Icon(Icons.add),
             label: 'School',
           ),
         ],
@@ -53,6 +66,11 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.blue,
           alignment: Alignment.center,
           child: const Text('Page 3'),
+        ),
+        Container(
+          color: Colors.blue,
+          alignment: Alignment.center,
+          child: const Text('Page 4'),
         ),
       ][currentPageIndex],
     );
