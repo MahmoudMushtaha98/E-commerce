@@ -1,3 +1,4 @@
+import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:evgo/screen/sign_up/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,9 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.grey
-    ));
+
 
     return MaterialApp(
       theme: ThemeData(
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const ShopScreen(),
     );
   }
 }

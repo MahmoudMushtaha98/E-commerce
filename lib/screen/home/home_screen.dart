@@ -1,3 +1,4 @@
+import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,12 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentPageIndex = 0;
 
 
-  Widget setIcon(String path){
-    return SvgPicture.asset(
-        path,
-        semanticsLabel: 'Acme Logo'
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,29 +30,25 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedIndex: currentPageIndex,
         destinations: [
           NavigationDestination(
-            icon: setIcon('assets/Shop Icon.svg'),
-            label: 'Home',
+            icon: setIcon('assets/icons/Shop Icon.svg'),
+            label: '',
           ),
-          const NavigationDestination(
-            icon: Icon(Icons.business),
-            label: 'Business',
+           NavigationDestination(
+            icon: setIcon('assets/icons/Heart Icon.svg'),
+            label: '',
           ),
-          const NavigationDestination(
-            icon: Icon(Icons.school_outlined),
-            label: 'School',
+           NavigationDestination(
+            icon: setIcon('assets/icons/Chat bubble Icon.svg'),
+            label: '',
           ),
-          const NavigationDestination(
-            icon: Icon(Icons.add),
-            label: 'School',
+           NavigationDestination(
+            icon: setIcon('assets/icons/User.svg'),
+            label: '',
           ),
         ],
       ),
-      body: <Widget>[
-        Container(
-          color: Colors.red,
-          alignment: Alignment.center,
-          child: const Text('Page 1'),
-        ),
+      body: [
+        const ShopScreen(),
         Container(
           color: Colors.green,
           alignment: Alignment.center,
@@ -75,4 +67,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ][currentPageIndex],
     );
   }
+}
+
+Widget setIcon(String path){
+  return SvgPicture.asset(
+      path,
+      semanticsLabel: 'Acme Logo'
+  );
 }
