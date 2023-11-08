@@ -30,7 +30,7 @@ class CardOfIcon extends StatelessWidget {
         SizedBox(
             width: width*0.14,
             height: width*0.14,
-            child: Text(textOfCard,textAlign: TextAlign.center,style: const TextStyle(fontFamily: 'MyFont'),))
+            child: Text(textOfCard,textAlign: TextAlign.center,style: const TextStyle(fontFamily: 'MyFont',color: Colors.grey),))
       ],
     );
   }

@@ -1,78 +1,131 @@
-import 'package:evgo/widget/set_icon_widget.dart';
+import 'package:evgo/widget/card_icon.dart';
+import 'package:evgo/widget/special_for_you.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ShopScreen extends StatelessWidget {
-  const ShopScreen({Key? key}) : super(key: key);
+   const ShopScreen({Key? key}) : super(key: key);
 
 
-  List<CardOfIcon> listView = [];
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    List<CardOfIcon> list = [
+      CardOfIcon(width: width, path: 'assets/icons/Flash Icon.svg', textOfCard: 'Flash Deal'),
+      CardOfIcon(width: width, path: 'assets/icons/Bill Icon.svg', textOfCard: 'Bill'),
+      CardOfIcon(width: width, path: 'assets/icons/Game Icon.svg', textOfCard: 'Game'),
+      CardOfIcon(width: width, path: 'assets/icons/Gift Icon.svg', textOfCard: 'Daily Gift'),
+      CardOfIcon(width: width, path: 'assets/icons/Discover.svg', textOfCard: 'More'),
+
+    ];
+
+    List<SpecialForYou> specialForYou = [
+      SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 2.png',title: 'Smartphone',subTitle: '18 Brands',),
+      SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 3.png',title: 'Smartphone',subTitle: '18 Brands',),
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black12,
+        backgroundColor: Colors.grey,
         toolbarHeight: 20,
         elevation: 0,
+        automaticallyImplyLeading: false,
       ),
-      body: ListView(
-        children: [
-          SizedBox(height: height*0.02,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SizedBox(
-                width: width*0.6,
-                height: height*0.07,
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    fillColor: Colors.black12,
-                    filled: true,
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.white)
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: width*0.03,vertical: width*0.03),
+        child: ListView(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  width: width*0.6,
+                  height: height*0.07,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      fillColor: Colors.black12,
+                      filled: true,
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderSide: BorderSide(color: Colors.white)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderSide: BorderSide(color: Colors.white)
+                      ),
+                      prefixIcon: Icon(Icons.search),
+                      label: Text('Search product',style: TextStyle(fontSize: 15,fontFamily: 'MyFont'),),
+                      contentPadding: EdgeInsets.only(left: 30,top: 40),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.white)
-                    ),
-                    prefixIcon: Icon(Icons.search),
-                    label: Text('Search product',style: TextStyle(fontSize: 15,fontFamily: 'MyFont'),),
-                    contentPadding: EdgeInsets.only(left: 30,top: 40),
                   ),
                 ),
+                buildCircleContainer(width, height,'assets/icons/Cart Icon.svg'),
+                buildCircleContainer(width, height,'assets/icons/Bell.svg'),
+              ],
+            ),
+             SizedBox(height: height*0.02,),
+             Container(
+               alignment: Alignment.topLeft,
+               padding: EdgeInsets.all(width*0.05),
+               decoration: const BoxDecoration(
+                 color: Colors.deepPurple,
+                 borderRadius: BorderRadius.all(Radius.circular(15))
+               ),
+               child: Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
+                 children: [
+                   Text('A Summer Surpise',style: TextStyle(fontFamily: 'MyFont',color: Colors.white,fontSize:width*0.04 )),
+                   Text('Cashback 20%',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'MyFont',fontSize:width*0.07,color: Colors.white)),
+                 ],
+               ),
+             ),
+            SizedBox(height: height*0.02,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: list,
+            ),
+            SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                 Text('Special for you',style: TextStyle(fontSize: width*0.06,fontFamily: 'MyFont'),),
+                 const Text('See more',style: TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
+
+                ],
+
+
+             ),
+            SizedBox(height: height*0.02,),
+            SizedBox(
+              height: 100,
+              width: double.infinity,
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: List.generate(specialForYou.length, (index) {
+
+                  return Row(
+                    children: [
+                      specialForYou[index],
+                      SizedBox(width: width*0.06,)
+                    ],
+                  );
+                }),
               ),
-              buildCircleContainer(width, height,'assets/icons/Cart Icon.svg'),
-              buildCircleContainer(width, height,'assets/icons/Bell.svg'),
-            ],
-          ),
-           Container(
-             alignment: Alignment.topLeft,
-             margin: EdgeInsets.all(width*0.04),
-             padding: EdgeInsets.all(width*0.05),
-             decoration: const BoxDecoration(
-               color: Colors.deepPurple,
-               borderRadius: BorderRadius.all(Radius.circular(15))
-             ),
-             child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 Text('A Summer Surpise',style: TextStyle(fontFamily: 'MyFont',color: Colors.white,fontSize:width*0.04 )),
-                 Text('Cashback 20%',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'MyFont',fontSize:width*0.07,color: Colors.white)),
-               ],
-             ),
-           ),
-          SizedBox(height: height*0.02,),
-          ListView(
-            scrollDirection: Axis.horizontal,
-            children: ,
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
+
+
+
+
+
 
   Container buildCircleContainer(double width, double height,String path) {
     return Container(

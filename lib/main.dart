@@ -1,4 +1,3 @@
-import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:evgo/screen/sign_up/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const ShopScreen(),
+      home: const SplashScreen(),
     );
   }
 }

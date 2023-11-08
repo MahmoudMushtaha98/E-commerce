@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: [
-        const ShopScreen(),
+         ShopScreen(),
         Container(
           color: Colors.green,
           alignment: Alignment.center,
