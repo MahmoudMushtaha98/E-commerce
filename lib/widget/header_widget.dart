@@ -17,12 +17,13 @@ class HeaderWidget extends StatelessWidget {
       children: [
         Container(
           width: width,
-          height: height*0.1,
+          height: height*0.06,
           color: Colors.grey,
         ),
         Row(
           children: [
             IconButton(onPressed: () {
+              Navigator.pop(context);
             }, icon: const Icon(Icons.arrow_back_outlined,color: Colors.black,)),
           ],
         ),

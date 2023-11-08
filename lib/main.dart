@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         textTheme: const TextTheme(
-          bodyLarge: TextStyle(fontFamily:'MyFont' )
-        )
+          bodyLarge: TextStyle(fontFamily:'MyFont')
+        ),
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

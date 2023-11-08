@@ -21,8 +21,9 @@ class BuildTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
               borderSide: const BorderSide(color: Colors.grey)
           ),
-          label: Text(hintText),
+          label: Text(hintText,style: const TextStyle(fontFamily: 'MyFont'),),
           hintText: label,
+          hintStyle: const TextStyle(fontFamily: 'MyFont'),
           suffixIcon: Icon(iconData),
           contentPadding: const EdgeInsets.only(left: 30,top: 40),
         ),

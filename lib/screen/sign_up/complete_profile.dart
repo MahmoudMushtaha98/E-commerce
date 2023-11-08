@@ -14,18 +14,17 @@ class CompleteProfileScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: ListView(
         children: [
           HeaderWidget(width: width, height: height),
           Column(
             children: [
               const SizedBox(height: 30,),
-              const Text('Complete Profile',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+              const Text('Complete Profile',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'MyFont'),),
               SizedBox(
                 width: width*0.5,
                 child: const Text('Complete your details or continue with social media',
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -43,10 +42,11 @@ class CompleteProfileScreen extends StatelessWidget {
               },),
             ],
           ),
+          const SizedBox(height: 20,),
           Column(
             children: [
               SizedBox(
-                width: width*0.6,
+                width: width*0.75,
                 child: const Text('By continuing your confirm that you agree with our term and condition' ,
                   style: TextStyle(color: Colors.grey),
                   textAlign: TextAlign.center,

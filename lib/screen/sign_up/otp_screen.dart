@@ -16,16 +16,17 @@ class OtpScreen extends StatelessWidget {
           HeaderWidget(width: width, height: height),
           Column(
             children: [
-              const Text('OTP Verfication',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
+              const Text('OTP Verfication',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'Myfont')),
               SizedBox(
-                width: width*0.55,
+                width: width*0.7,
                 child: const Text.rich(
                     textAlign: TextAlign.center,
                     TextSpan(
                         text: 'We sent your code to +1 898 860 *** This code will expired in',
+                        style: TextStyle(fontFamily: 'Myfont'),
                         children: [
                           TextSpan(
-                            text: ' 00:13',style: TextStyle(color: Colors.deepOrange),
+                            text: ' 00:13',style: TextStyle(color: Colors.deepOrange,fontFamily: 'Myfont'),
                           )
                         ]
                     )

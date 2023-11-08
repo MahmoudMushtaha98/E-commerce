@@ -18,7 +18,7 @@ class ButtonWidget extends StatelessWidget {
         style: const ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(Colors.deepOrangeAccent),
           shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-        ), child: const Text('Continue',style: TextStyle(color: Colors.white,fontSize: 20),),
+        ), child: const Text('Continue',style: TextStyle(color: Colors.white,fontSize: 20,fontFamily: 'MyFont'),),
       ),
     );
   }

@@ -7,7 +7,6 @@ import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -37,9 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontFamily: 'MyFont'
               ),),
               SizedBox(
-                width: width*0.55,
+                width: width*0.6,
                 child: const Text('Sign in with your email and password or continue with social media',
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -59,13 +58,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       isChecked = !isChecked;
                     });
                   },),
-                    const Text('Remember me'),],),
+                    const Text('Remember me',style: TextStyle(fontFamily: 'MyFont')),],),
 
                   TextButton(onPressed: () {
 
                   }, child: InkWell(
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordWidget(),)),
-                      child: const Text('Forgot password', style: TextStyle(color: Colors.grey),)))
+                      child: const Text('Forgot password', style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),)))
                 ],
               ),
               SizedBox(height: height*0.03,),
@@ -91,9 +90,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account? ",style: TextStyle(color: Colors.grey)),
+                  const Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
                   InkWell(
-                    child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange)),
+                    child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange,fontFamily: 'MyFont')),
                     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),)),
                   ),
                 ],

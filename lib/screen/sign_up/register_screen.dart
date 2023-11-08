@@ -17,18 +17,17 @@ class RegisterScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: ListView(
         children: [
           HeaderWidget(width: width, height: height),
           Column(
             children: [
               const SizedBox(height: 30,),
-              const Text('Register Account',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+              const Text('Register Account',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'MyFont'),),
               SizedBox(
                 width: width*0.5,
                 child: const Text('Complete your details or continue with social media',
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -48,6 +47,7 @@ class RegisterScreen extends StatelessWidget {
               },),
             ],
           ),
+          SizedBox(height: height*0.07,),
           Column(
             children: [
               Row(
@@ -63,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               SizedBox(height: height*0.05,),
               const Text('By continuing your confirm that you agree',
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 5,)
