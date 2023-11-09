@@ -1,4 +1,6 @@
+import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:evgo/widget/card_icon.dart';
+import 'package:evgo/widget/popular_widget.dart';
 import 'package:evgo/widget/special_for_you.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -24,9 +26,29 @@ class ShopScreen extends StatelessWidget {
 
     List<SpecialForYou> specialForYou = [
       SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 2.png',title: 'Smartphone',subTitle: '18 Brands',),
-      SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 3.png',title: 'Smartphone',subTitle: '18 Brands',),
+      SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 3.png',title: 'Fashion',subTitle: '24 Brands',),
     ];
 
+    List<PopularProduct> popular = [
+      PopularProduct(
+        width: width,
+        path: 'assets/images/Image Popular Product 1.png',
+        title: 'Wireless Controller for PS4™',
+        price: "\$64.99",
+      ),
+      PopularProduct(
+        width: width,
+        path: 'assets/images/Image Popular Product 2.png',
+        title: 'Nike Sport White - Man Paint',
+        price: "\$50.5",
+      ),
+      PopularProduct(
+        width: width,
+        path: 'assets/images/Image Popular Product 3.png',
+        title: 'Wireless Controller for PS4™',
+        price: "\$64.99",
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
@@ -88,16 +110,7 @@ class ShopScreen extends StatelessWidget {
               children: list,
             ),
             SizedBox(height: height*0.02,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                 Text('Special for you',style: TextStyle(fontSize: width*0.06,fontFamily: 'MyFont'),),
-                 const Text('See more',style: TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
-
-                ],
-
-
-             ),
+              buildRow(width,'Special for you','See more'),
             SizedBox(height: height*0.02,),
             SizedBox(
               height: 100,
@@ -106,7 +119,6 @@ class ShopScreen extends StatelessWidget {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: List.generate(specialForYou.length, (index) {
-
                   return Row(
                     children: [
                       specialForYou[index],
@@ -115,11 +127,33 @@ class ShopScreen extends StatelessWidget {
                   );
                 }),
               ),
+            ),
+            SizedBox(height: height*0.02,),
+            buildRow(width,'Popular Products','See more'),
+            SizedBox(height: height*0.02,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(popular.length, (index) {
+                  return popular[index];
+                }),
+              ),
             )
           ],
         ),
       ),
     );
+  }
+
+  Row buildRow(double width,String title,String subTitle) {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+               Text(title,style: TextStyle(fontSize: width*0.06,fontFamily: 'MyFont'),),
+                Text(subTitle,style: const TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
+
+              ],
+           );
   }
 
 
@@ -140,6 +174,7 @@ class ShopScreen extends StatelessWidget {
             );
   }
 }
+
 Widget setIcon(String path){
   return SvgPicture.asset(
       path,

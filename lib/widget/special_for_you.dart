@@ -36,8 +36,15 @@ class SpecialForYou extends StatelessWidget {
           width: width*0.7,
           alignment: Alignment.topLeft,
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.4),
-              borderRadius: const BorderRadius.all(Radius.circular(25))
+              borderRadius: const BorderRadius.all(Radius.circular(25)),
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [
+                Colors.black.withOpacity(0.1),
+                Colors.black.withOpacity(0.5)
+              ]
+            )
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
