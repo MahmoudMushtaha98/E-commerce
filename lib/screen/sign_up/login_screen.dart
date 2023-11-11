@@ -12,6 +12,8 @@ class LoginScreen extends StatefulWidget {
 
   static const screenRoute = '/login-screen';
 
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -64,13 +66,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(onPressed: () {
 
                   }, child: InkWell(
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordWidget(),)),
+                      onTap: () => Navigator.of(context).pushNamed(ForgotPasswordScreen.screenRoute),
                       child: const Text('Forgot password', style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),)))
                 ],
               ),
               SizedBox(height: height*0.03,),
               ButtonWidget(width: width, callBack: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
+                Navigator.of(context).pushNamed(RegisterScreen.screenRoute);
               },),
             ],
           ),
@@ -94,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
                   InkWell(
                     child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange,fontFamily: 'MyFont')),
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),)),
+                    onTap: () => Navigator.of(context).pushNamed(RegisterScreen.screenRoute),
                   ),
                 ],
               )

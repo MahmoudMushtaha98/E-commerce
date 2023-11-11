@@ -1,3 +1,4 @@
+import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class OtpScreen extends StatelessWidget {
             ],
           ),
           ButtonWidget(width: width*0.9, callBack: () {
-
+            Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.screenRoute,ModalRoute.withName('/'));
           },),
           TextButton(onPressed: () {
             

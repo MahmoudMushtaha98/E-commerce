@@ -40,7 +40,7 @@ class CompleteProfileScreen extends StatelessWidget {
               BuildTextFormField(width: width,hintText: 'Address',iconData: Icons.location_on_outlined,label: 'Enter your phone address'),
               SizedBox(height: height*0.05,),
               ButtonWidget(width: width,callBack: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
+                Navigator.of(context).pushNamed(OtpScreen.screenRoute);
               },),
             ],
           ),

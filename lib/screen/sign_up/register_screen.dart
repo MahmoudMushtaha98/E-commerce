@@ -43,7 +43,7 @@ class RegisterScreen extends StatelessWidget {
               BuildTextFormField(width: width,label: 'Confirm password',iconData: Icons.lock_outline,hintText:'Re-Enter your Password'),
               SizedBox(height: height*0.04,),
               ButtonWidget(width: width,callBack: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => CompleteProfileScreen(),));
+                Navigator.of(context).pushNamed(CompleteProfileScreen.screenRoute);
               },),
             ],
           ),

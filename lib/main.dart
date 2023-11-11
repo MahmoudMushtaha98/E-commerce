@@ -22,13 +22,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/':(context) => const SplashScreen(),
-        LoginScreen.screenRoute : (context) => LoginScreen(),
-        HomeScreen.screenRoute : (context) => HomeScreen(),
-        ShopScreen.screenRoute : (context) => ShopScreen(),
-        RegisterScreen.screenRoute : (context) => RegisterScreen(),
-        CompleteProfileScreen.screenRoute : (context) => CompleteProfileScreen(),
-        OtpScreen.screenRoute : (context) => OtpScreen(),
-        ForgotPasswordScreen.screenRoute : (context) => ForgotPasswordScreen()
+        LoginScreen.screenRoute : (context) => const LoginScreen(),
+        HomeScreen.screenRoute : (context) => const HomeScreen(),
+        ShopScreen.screenRoute : (context) => const ShopScreen(),
+        RegisterScreen.screenRoute : (context) => const RegisterScreen(),
+        CompleteProfileScreen.screenRoute : (context) => const CompleteProfileScreen(),
+        OtpScreen.screenRoute : (context) => const OtpScreen(),
+        ForgotPasswordScreen.screenRoute : (context) => const ForgotPasswordScreen()
       },
       theme: ThemeData(
         textTheme: const TextTheme(
@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
     );
   }
 }
