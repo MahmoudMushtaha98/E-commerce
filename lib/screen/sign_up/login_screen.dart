@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: height*0.03,),
               ButtonWidget(width: width, callBack: () {
-                Navigator.of(context).pushNamed(RegisterScreen.screenRoute);
+                Navigator.of(context).pushNamed(HomeScreen.screenRoute);
               },),
             ],
           ),
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
                   InkWell(
                     child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange,fontFamily: 'MyFont')),
-                    onTap: () => Navigator.of(context).pushNamed(HomeScreen.screenRoute),
+                    onTap: () => Navigator.of(context).pushNamed(RegisterScreen.screenRoute),
                   ),
                 ],
               )
