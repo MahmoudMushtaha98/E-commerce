@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 class ShopScreen extends StatelessWidget {
    const ShopScreen({Key? key}) : super(key: key);
 
-
+   static const screenRoute = '/shop-screen';
 
   @override
   Widget build(BuildContext context) {

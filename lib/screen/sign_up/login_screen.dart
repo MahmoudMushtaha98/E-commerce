@@ -9,7 +9,8 @@ import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+
+  static const screenRoute = '/login-screen';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();

@@ -10,7 +10,7 @@ import 'complete_profile.dart';
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
-
+  static const screenRoute = '/register-screen';
 
   @override
   Widget build(BuildContext context) {

@@ -7,6 +7,8 @@ import 'package:flutter_svg/svg.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  static const screenRoute = '/home-screen';
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }

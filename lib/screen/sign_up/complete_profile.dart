@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 class CompleteProfileScreen extends StatelessWidget {
   const CompleteProfileScreen({Key? key}) : super(key: key);
 
+  static const screenRoute = '/complete-screen';
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
