@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
                   InkWell(
                     child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange,fontFamily: 'MyFont')),
-                    onTap: () => Navigator.of(context).pushNamed(RegisterScreen.screenRoute),
+                    onTap: () => Navigator.of(context).pushNamed(HomeScreen.screenRoute),
                   ),
                 ],
               )
