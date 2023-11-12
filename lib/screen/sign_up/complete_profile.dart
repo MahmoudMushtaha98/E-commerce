@@ -6,6 +6,8 @@ import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'login_screen.dart';
+
 class CompleteProfileScreen extends StatelessWidget {
   const CompleteProfileScreen({Key? key}) : super(key: key);
 
@@ -39,7 +41,7 @@ class CompleteProfileScreen extends StatelessWidget {
               SizedBox(height: height*0.04,),
               BuildTextFormField(width: width,hintText: 'Address',iconData: Icons.location_on_outlined,label: 'Enter your phone address'),
               SizedBox(height: height*0.05,),
-              ButtonWidget(width: width,callBack: () {
+              ButtonWidget(text: continueButton,width: width,callBack: () {
                 Navigator.of(context).pushNamed(OtpScreen.screenRoute);
               },),
             ],

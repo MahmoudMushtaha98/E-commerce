@@ -4,6 +4,8 @@ import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'login_screen.dart';
+
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
 
@@ -29,7 +31,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
           ],),
           BuildTextFormField(width: width,hintText: 'Email',iconData:Icons.email_outlined,label:'Enter your email'),
-          ButtonWidget(width: width, callBack: () {
+          ButtonWidget(text: continueButton,width: width, callBack: () {
 
           },),
           Row(

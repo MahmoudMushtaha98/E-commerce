@@ -8,6 +8,8 @@ import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
+String continueButton = 'continue';
+
 class LoginScreen extends StatefulWidget {
 
   static const screenRoute = '/login-screen';
@@ -71,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               SizedBox(height: height*0.03,),
-              ButtonWidget(width: width, callBack: () {
+              ButtonWidget(text: continueButton,width: width, callBack: () {
                 Navigator.of(context).pushNamed(HomeScreen.screenRoute);
               },),
             ],

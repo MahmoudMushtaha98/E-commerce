@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     super.key,
-    required this.width, required this.callBack,
+    required this.width, required this.callBack, required this.text,
   });
 
   final double width;
   final VoidCallback callBack;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ButtonWidget extends StatelessWidget {
         style: const ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(Colors.deepOrangeAccent),
           shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-        ), child: const Text('Continue',style: TextStyle(color: Colors.white,fontSize: 20,fontFamily: 'MyFont'),),
+        ), child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 20,fontFamily: 'MyFont'),),
       ),
     );
   }

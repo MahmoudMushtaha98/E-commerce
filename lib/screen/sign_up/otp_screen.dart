@@ -46,7 +46,7 @@ class OtpScreen extends StatelessWidget {
               buildTextField(width),
             ],
           ),
-          ButtonWidget(width: width*0.9, callBack: () {
+          ButtonWidget(text: continueButton,width: width*0.9, callBack: () {
             Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.screenRoute,ModalRoute.withName('/'));
           },),
           TextButton(onPressed: () {

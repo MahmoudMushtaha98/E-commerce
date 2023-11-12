@@ -1,41 +1,9 @@
-import 'package:evgo/screen/home/home_screen.dart';
-import 'package:evgo/screen/home/shop_screen.dart';
-import 'package:evgo/screen/sign_up/complete_profile.dart';
-import 'package:evgo/screen/sign_up/forgot_screen.dart';
-import 'package:evgo/screen/sign_up/login_screen.dart';
-import 'package:evgo/screen/sign_up/otp_screen.dart';
-import 'package:evgo/screen/sign_up/register_screen.dart';
-import 'package:evgo/screen/sign_up/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'config/myapp.dart';
+
+
+
 
 void main() {
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-
-
-    return MaterialApp(
-      routes: {
-        '/':(context) => const SplashScreen(),
-        LoginScreen.screenRoute : (context) => const LoginScreen(),
-        HomeScreen.screenRoute : (context) => const HomeScreen(),
-        ShopScreen.screenRoute : (context) => const ShopScreen(),
-        RegisterScreen.screenRoute : (context) => const RegisterScreen(),
-        CompleteProfileScreen.screenRoute : (context) => const CompleteProfileScreen(),
-        OtpScreen.screenRoute : (context) => const OtpScreen(),
-        ForgotPasswordScreen.screenRoute : (context) => const ForgotPasswordScreen()
-      },
-      theme: ThemeData(
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(fontFamily:'MyFont')
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-    );
-  }
 }

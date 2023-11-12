@@ -1,4 +1,5 @@
 
+import 'package:evgo/screen/home/details_screen.dart';
 import 'package:flutter/material.dart';
 
 class PopularProduct extends StatefulWidget {
@@ -26,16 +27,19 @@ class _PopularProductState extends State<PopularProduct> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: widget.width*0.5,
-          height: widget.width*0.5,
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: const BorderRadius.all(Radius.circular(20))
-          ),
-          child: Image.asset(
-            widget.path,
+        GestureDetector(
+          onTap: () => Navigator.of(context).pushNamed(DetailsScreen.screenRoute),
+          child: Container(
+            width: widget.width*0.5,
+            height: widget.width*0.5,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: const BorderRadius.all(Radius.circular(20))
+            ),
+            child: Image.asset(
+              widget.path,
+            ),
           ),
         ),
         SizedBox(
@@ -51,7 +55,7 @@ class _PopularProductState extends State<PopularProduct> {
           children: [
             Text(widget.price,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.deepOrange),),
             SizedBox(width: widget.width*0.25,),
-            InkWell(
+            GestureDetector(
               onTap: () {
                 setState(() {
                   iconColor=!iconColor;

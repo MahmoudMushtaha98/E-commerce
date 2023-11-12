@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../widget/button_widget.dart';
 import 'complete_profile.dart';
+import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class RegisterScreen extends StatelessWidget {
               SizedBox(height: height*0.03,),
               BuildTextFormField(width: width,label: 'Confirm password',iconData: Icons.lock_outline,hintText:'Re-Enter your Password'),
               SizedBox(height: height*0.04,),
-              ButtonWidget(width: width,callBack: () {
+              ButtonWidget(text: continueButton,width: width,callBack: () {
                 Navigator.of(context).pushNamed(CompleteProfileScreen.screenRoute);
               },),
             ],
