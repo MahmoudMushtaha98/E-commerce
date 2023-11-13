@@ -1,3 +1,4 @@
+import 'package:evgo/screen/home/profile_screen.dart';
 import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: [
-         ShopScreen(),
+         const ShopScreen(),
         Container(
           color: Colors.green,
           alignment: Alignment.center,
@@ -62,11 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
           alignment: Alignment.center,
           child: const Text('Page 3'),
         ),
-        Container(
-          color: Colors.blue,
-          alignment: Alignment.center,
-          child: const Text('Page 4'),
-        ),
+        const ProfileScreen(),
       ][currentPageIndex],
     );
   }
@@ -77,4 +74,13 @@ Widget setIcon(String path){
       path,
       semanticsLabel: 'Acme Logo'
   );
+}
+
+
+double widthOrHeight(BuildContext context,{required int choice}){
+  if(choice!=0) {
+    return MediaQuery.of(context).size.width;
+  }else {
+    return MediaQuery.of(context).size.height;
+  }
 }

@@ -5,6 +5,8 @@ import 'package:evgo/widget/special_for_you.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../sign_up/complete_profile.dart';
+
 class ShopScreen extends StatelessWidget {
    const ShopScreen({Key? key}) : super(key: key);
 
@@ -12,38 +14,36 @@ class ShopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     List<CardOfIcon> list = [
-      CardOfIcon(width: width, path: 'assets/icons/Flash Icon.svg', textOfCard: 'Flash Deal'),
-      CardOfIcon(width: width, path: 'assets/icons/Bill Icon.svg', textOfCard: 'Bill'),
-      CardOfIcon(width: width, path: 'assets/icons/Game Icon.svg', textOfCard: 'Game'),
-      CardOfIcon(width: width, path: 'assets/icons/Gift Icon.svg', textOfCard: 'Daily Gift'),
-      CardOfIcon(width: width, path: 'assets/icons/Discover.svg', textOfCard: 'More'),
+      CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Flash Icon.svg', textOfCard: 'Flash Deal'),
+      CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Bill Icon.svg', textOfCard: 'Bill'),
+      CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Game Icon.svg', textOfCard: 'Game'),
+      CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Gift Icon.svg', textOfCard: 'Daily Gift'),
+      CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Discover.svg', textOfCard: 'More'),
 
     ];
 
     List<SpecialForYou> specialForYou = [
-      SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 2.png',title: 'Smartphone',subTitle: '18 Brands',),
-      SpecialForYou(width: width, height: height,path: 'assets/images/Image Banner 3.png',title: 'Fashion',subTitle: '24 Brands',),
+      SpecialForYou(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0),path: 'assets/images/Image Banner 2.png',title: 'Smartphone',subTitle: '18 Brands',),
+      SpecialForYou(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0),path: 'assets/images/Image Banner 3.png',title: 'Fashion',subTitle: '24 Brands',),
     ];
 
     List<PopularProduct> popular = [
       PopularProduct(
-        width: width,
+        width: widthOrHeight(context,choice:1),
         path: 'assets/images/Image Popular Product 1.png',
         title: 'Wireless Controller for PS4™',
         price: "\$64.99",
       ),
       PopularProduct(
-        width: width,
+        width: widthOrHeight(context,choice:1),
         path: 'assets/images/Image Popular Product 2.png',
         title: 'Nike Sport White - Man Paint',
         price: "\$50.5",
       ),
       PopularProduct(
-        width: width,
+        width: widthOrHeight(context,choice:1),
         path: 'assets/images/Image Popular Product 3.png',
         title: 'Wireless Controller for PS4™',
         price: "\$64.99",
@@ -57,15 +57,15 @@ class ShopScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: width*0.03,vertical: width*0.03),
+        padding: EdgeInsets.symmetric(horizontal: widthOrHeight(context,choice:1)*0.03,vertical: widthOrHeight(context,choice:1)*0.03),
         child: ListView(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: width*0.6,
-                  height: height*0.07,
+                  width: widthOrHeight(context,choice:1)*0.6,
+                  height: widthOrHeight(context,choice:0)*0.07,
                   child: TextFormField(
                     decoration: const InputDecoration(
                       fillColor: Colors.black12,
@@ -84,14 +84,14 @@ class ShopScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                buildCircleContainer(width, height,'assets/icons/Cart Icon.svg'),
-                buildCircleContainer(width, height,'assets/icons/Bell.svg'),
+                buildCircleContainer(widthOrHeight(context,choice:1), widthOrHeight(context,choice:0),'assets/icons/Cart Icon.svg'),
+                buildCircleContainer(widthOrHeight(context,choice:1), widthOrHeight(context,choice:0),'assets/icons/Bell.svg'),
               ],
             ),
-             SizedBox(height: height*0.02,),
+             SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
              Container(
                alignment: Alignment.topLeft,
-               padding: EdgeInsets.all(width*0.05),
+               padding: EdgeInsets.all(widthOrHeight(context,choice:1)*0.05),
                decoration: const BoxDecoration(
                  color: Colors.deepPurple,
                  borderRadius: BorderRadius.all(Radius.circular(15))
@@ -99,19 +99,19 @@ class ShopScreen extends StatelessWidget {
                child: Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
-                   Text('A Summer Surpise',style: TextStyle(fontFamily: 'MyFont',color: Colors.white,fontSize:width*0.04 )),
-                   Text('Cashback 20%',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'MyFont',fontSize:width*0.07,color: Colors.white)),
+                   Text('A Summer Surpise',style: TextStyle(fontFamily: 'MyFont',color: Colors.white,fontSize:widthOrHeight(context,choice:1)*0.04 )),
+                   Text('Cashback 20%',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'MyFont',fontSize:widthOrHeight(context,choice:1)*0.07,color: Colors.white)),
                  ],
                ),
              ),
-            SizedBox(height: height*0.02,),
+            SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: list,
             ),
-            SizedBox(height: height*0.02,),
-              buildRow(width,'Special for you','See more'),
-            SizedBox(height: height*0.02,),
+            SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
+              buildRow(widthOrHeight(context,choice:1),'Special for you','See more'),
+            SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
             SizedBox(
               height: 100,
               width: double.infinity,
@@ -122,15 +122,15 @@ class ShopScreen extends StatelessWidget {
                   return Row(
                     children: [
                       specialForYou[index],
-                      SizedBox(width: width*0.06,)
+                      SizedBox(width: widthOrHeight(context,choice:1)*0.06,)
                     ],
                   );
                 }),
               ),
             ),
-            SizedBox(height: height*0.02,),
-            buildRow(width,'Popular Products','See more'),
-            SizedBox(height: height*0.02,),
+            SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
+            buildRow(widthOrHeight(context,choice:1),'Popular Products','See more'),
+            SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(

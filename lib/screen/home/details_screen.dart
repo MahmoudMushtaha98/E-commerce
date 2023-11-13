@@ -28,19 +28,17 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
         elevation: 0,
         automaticallyImplyLeading: false,
-        toolbarHeight: height*0.03,
+        toolbarHeight: widthOrHeight(context,choice:0)*0.03,
       ),
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.all(height*0.07),
+            padding: EdgeInsets.all(widthOrHeight(context,choice:0)*0.07),
             child: Image.asset('assets/images/Image Popular Product 1.png'),
           ),
           Column(
@@ -52,9 +50,9 @@ class DetailsScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () => Navigator.pop(context),
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: width*0.06),
-                      width: width*0.12,
-                      height: width*0.12,
+                      margin: EdgeInsets.symmetric(horizontal: widthOrHeight(context,choice:1)*0.06),
+                      width: widthOrHeight(context,choice:1)*0.12,
+                      height: widthOrHeight(context,choice:1)*0.12,
                       decoration: const BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle
@@ -63,9 +61,9 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: width*0.06),
-                    width: width*0.17,
-                    height: width*0.08,
+                    margin: EdgeInsets.symmetric(horizontal: widthOrHeight(context,choice:1)*0.06),
+                    width: widthOrHeight(context,choice:1)*0.17,
+                    height: widthOrHeight(context,choice:1)*0.08,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white
@@ -89,32 +87,32 @@ class DetailsScreen extends StatelessWidget {
                       return Row(
                         children: [
                           details[index],
-                          SizedBox(width: width*0.03,)
+                          SizedBox(width: widthOrHeight(context,choice:1)*0.03,)
                         ],
                       );
                     }),
                   ),
-                  SizedBox(height: height*0.02,),
+                  SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
                   Container(
                     width: double.infinity,
-                    height: height*0.48,
+                    height: widthOrHeight(context,choice:0)*0.48,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.only(topRight: Radius.circular(height*0.06),topLeft: Radius.circular(height*0.06)),
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(widthOrHeight(context,choice:0)*0.06),topLeft: Radius.circular(widthOrHeight(context,choice:0)*0.06)),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: width*0.07,top: width*0.07),
-                          child: Text('Wireless Controller for PS4™',style: TextStyle(fontFamily: 'MyFont',fontSize: width*0.05),),
+                          padding: EdgeInsets.only(left: widthOrHeight(context,choice:1)*0.07,top: widthOrHeight(context,choice:1)*0.07),
+                          child: Text('Wireless Controller for PS4™',style: TextStyle(fontFamily: 'MyFont',fontSize: widthOrHeight(context,choice:1)*0.05),),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Container(
-                              width: width*0.18,
-                              height: height*0.07,
+                              width: widthOrHeight(context,choice:1)*0.18,
+                              height: widthOrHeight(context,choice:0)*0.07,
                               decoration:  BoxDecoration(
                                 color: Colors.pink.withOpacity(0.2),
                                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))
@@ -124,8 +122,8 @@ class DetailsScreen extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          padding: EdgeInsets.fromLTRB(width*0.07, 0, 0, 0),
-                          width: width*0.8,
+                          padding: EdgeInsets.fromLTRB(widthOrHeight(context,choice:1)*0.07, 0, 0, 0),
+                          width: widthOrHeight(context,choice:1)*0.8,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -136,7 +134,7 @@ class DetailsScreen extends StatelessWidget {
                                 maxLines: 3,
                                 overflow:  TextOverflow.ellipsis,
                               ),
-                              SizedBox(height: height*0.01,),
+                              SizedBox(height: widthOrHeight(context,choice:0)*0.01,),
                               Row(
                                 children: [
                                   GestureDetector(
@@ -144,7 +142,7 @@ class DetailsScreen extends StatelessWidget {
 
                                     },
                                       child: const Text('See More Detail ',style: TextStyle(color: Colors.deepOrange,fontFamily: 'MyFont',fontWeight: FontWeight.bold),)),
-                                  Icon(Icons.arrow_forward_ios,size: height*0.015,color: Colors.deepOrange,)
+                                  Icon(Icons.arrow_forward_ios,size: widthOrHeight(context,choice:0)*0.015,color: Colors.deepOrange,)
                                 ],
                               )
                             ],
@@ -161,10 +159,10 @@ class DetailsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                padding: EdgeInsets.all(width*0.05),
+                padding: EdgeInsets.all(widthOrHeight(context,choice:1)*0.05),
                 alignment: Alignment.topLeft,
                 width: double.infinity,
-                height: height*0.18,
+                height: widthOrHeight(context,choice:0)*0.18,
                 decoration: const BoxDecoration(
                   color: Color(0xFFf6f7f9),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
@@ -182,8 +180,8 @@ class DetailsScreen extends StatelessWidget {
                         );
                       },)
                     ),
-                    buildContainer(width,Icons.remove),
-                    buildContainer(width,Icons.add),
+                    buildContainer(widthOrHeight(context,choice:1),Icons.remove),
+                    buildContainer(widthOrHeight(context,choice:1),Icons.add),
                   ],
                 ),
               )
@@ -194,7 +192,7 @@ class DetailsScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: height*0.09,
+                height: widthOrHeight(context,choice:0)*0.09,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30))
@@ -202,7 +200,7 @@ class DetailsScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ButtonWidget(text: 'Add To Cart',width: width,callBack: () {
+                    ButtonWidget(text: 'Add To Cart',width: widthOrHeight(context,choice:1),callBack: () {
 
                     },),
                   ],

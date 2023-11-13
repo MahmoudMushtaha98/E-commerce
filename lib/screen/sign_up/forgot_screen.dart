@@ -4,6 +4,7 @@ import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../home/home_screen.dart';
 import 'login_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -13,25 +14,23 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          HeaderWidget(width: width, height: height),
+          HeaderWidget(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0)),
           Column(children: [
             const Text('Forgot Password',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
             SizedBox(
-              width: width*0.6,
+              width: widthOrHeight(context,choice:1)*0.6,
               child: const Text('Pleas enter your email and we well send you a link to return to your account',
                 style: TextStyle(color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
             ),
           ],),
-          BuildTextFormField(width: width,hintText: 'Email',iconData:Icons.email_outlined,label:'Enter your email'),
-          ButtonWidget(text: continueButton,width: width, callBack: () {
+          BuildTextFormField(width: widthOrHeight(context,choice:1),hintText: 'Email',iconData:Icons.email_outlined,label:'Enter your email'),
+          ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1), callBack: () {
 
           },),
           Row(

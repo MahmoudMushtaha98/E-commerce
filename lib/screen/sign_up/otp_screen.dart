@@ -3,6 +3,8 @@ import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../home/home_screen.dart';
+
 class OtpScreen extends StatelessWidget {
   const OtpScreen({Key? key}) : super(key: key);
 
@@ -10,18 +12,16 @@ class OtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          HeaderWidget(width: width, height: height),
+          HeaderWidget(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0)),
           Column(
             children: [
               const Text('OTP Verfication',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'Myfont')),
               SizedBox(
-                width: width*0.7,
+                width: widthOrHeight(context,choice:1)*0.7,
                 child: const Text.rich(
                     textAlign: TextAlign.center,
                     TextSpan(
@@ -40,13 +40,13 @@ class OtpScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              buildTextField(width),
-              buildTextField(width),
-              buildTextField(width),
-              buildTextField(width),
+              buildTextField(widthOrHeight(context,choice:1)),
+              buildTextField(widthOrHeight(context,choice:1)),
+              buildTextField(widthOrHeight(context,choice:1)),
+              buildTextField(widthOrHeight(context,choice:1)),
             ],
           ),
-          ButtonWidget(text: continueButton,width: width*0.9, callBack: () {
+          ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1)*0.9, callBack: () {
             Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.screenRoute,ModalRoute.withName('/'));
           },),
           TextButton(onPressed: () {

@@ -25,13 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          HeaderWidget(width: width, height: height),
+          HeaderWidget(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0)),
           Column(
             children: [
               const SizedBox(height: 30,),
@@ -41,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontFamily: 'MyFont'
               ),),
               SizedBox(
-                width: width*0.6,
+                width: widthOrHeight(context,choice:1)*0.6,
                 child: const Text('Sign in with your email and password or continue with social media',
                   style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                   textAlign: TextAlign.center,
@@ -51,10 +49,10 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Column(
             children: [
-              BuildTextFormField(width: width, hintText:'Email', iconData:Icons.email_outlined,label:'Enter your email'),
-              SizedBox(height:height *0.04,),
-              BuildTextFormField(width: width, hintText: 'password', iconData:Icons.lock_outline, label:'Enter your password'),
-              SizedBox(height: height*0.03,),
+              BuildTextFormField(width: widthOrHeight(context,choice:1), hintText:'Email', iconData:Icons.email_outlined,label:'Enter your email'),
+              SizedBox(height:widthOrHeight(context,choice:0) *0.04,),
+              BuildTextFormField(width: widthOrHeight(context,choice:1), hintText: 'password', iconData:Icons.lock_outline, label:'Enter your password'),
+              SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
               Row(
                 mainAxisAlignment:MainAxisAlignment.spaceAround,
                 children: [
@@ -72,8 +70,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text('Forgot password', style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),)))
                 ],
               ),
-              SizedBox(height: height*0.03,),
-              ButtonWidget(text: continueButton,width: width, callBack: () {
+              SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
+              ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1), callBack: () {
                 Navigator.of(context).pushNamed(HomeScreen.screenRoute);
               },),
             ],
@@ -83,15 +81,15 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleWidget(width: width,url: 'assets/images/google.webp',),
-                  SizedBox(width: width*0.05,),
-                  CircleWidget(width: width,url: 'assets/images/unnamed.png',),
-                  SizedBox(width: width*0.05,),
-                  CircleWidget(width: width,url: 'assets/images/Logo_of_Twitter.svg.webp',)
+                  CircleWidget(width: widthOrHeight(context,choice:1),url: 'assets/images/google.webp',),
+                  SizedBox(width: widthOrHeight(context,choice:1)*0.05,),
+                  CircleWidget(width: widthOrHeight(context,choice:1),url: 'assets/images/unnamed.png',),
+                  SizedBox(width: widthOrHeight(context,choice:1)*0.05,),
+                  CircleWidget(width: widthOrHeight(context,choice:1),url: 'assets/images/Logo_of_Twitter.svg.webp',)
 
                 ],
               ),
-              SizedBox(height: height*0.03,),
+              SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

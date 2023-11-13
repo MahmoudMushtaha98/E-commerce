@@ -15,18 +15,16 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: ListView(
         children: [
-          HeaderWidget(width: width, height: height),
+          HeaderWidget(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0)),
           Column(
             children: [
               const SizedBox(height: 30,),
               const Text('Register Account',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'MyFont'),),
               SizedBox(
-                width: width*0.5,
+                width: widthOrHeight(context,choice:1)*0.5,
                 child: const Text('Complete your details or continue with social media',
                   style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                   textAlign: TextAlign.center,
@@ -36,33 +34,33 @@ class RegisterScreen extends StatelessWidget {
           ),
           Column(
             children: [
-              SizedBox(height: height*0.06,),
-              BuildTextFormField(width: width,hintText: 'Email',label: 'Enter your email',iconData: Icons.email_outlined,),
-              SizedBox(height: height*0.03,),
-              BuildTextFormField(width: width,label: 'Password',iconData: Icons.lock_outline,hintText: 'Enter your Password'),
-              SizedBox(height: height*0.03,),
-              BuildTextFormField(width: width,label: 'Confirm password',iconData: Icons.lock_outline,hintText:'Re-Enter your Password'),
-              SizedBox(height: height*0.04,),
-              ButtonWidget(text: continueButton,width: width,callBack: () {
+              SizedBox(height: widthOrHeight(context,choice:0)*0.06,),
+              BuildTextFormField(width: widthOrHeight(context,choice:1),hintText: 'Email',label: 'Enter your email',iconData: Icons.email_outlined,),
+              SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
+              BuildTextFormField(width: widthOrHeight(context,choice:1),label: 'Password',iconData: Icons.lock_outline,hintText: 'Enter your Password'),
+              SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
+              BuildTextFormField(width: widthOrHeight(context,choice:1),label: 'Confirm password',iconData: Icons.lock_outline,hintText:'Re-Enter your Password'),
+              SizedBox(height: widthOrHeight(context,choice:0)*0.04,),
+              ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1),callBack: () {
                 Navigator.of(context).pushNamed(CompleteProfileScreen.screenRoute);
               },),
             ],
           ),
-          SizedBox(height: height*0.07,),
+          SizedBox(height: widthOrHeight(context,choice:0)*0.07,),
           Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleWidget(width: width,url: 'assets/images/google.webp',),
-                  SizedBox(width: width*0.05,),
-                  CircleWidget(width: width,url: 'assets/images/unnamed.png',),
-                  SizedBox(width: width*0.05,),
-                  CircleWidget(width: width,url: 'assets/images/Logo_of_Twitter.svg.webp',)
+                  CircleWidget(width: widthOrHeight(context,choice:1),url: 'assets/images/google.webp',),
+                  SizedBox(width: widthOrHeight(context,choice:1)*0.05,),
+                  CircleWidget(width: widthOrHeight(context,choice:1),url: 'assets/images/unnamed.png',),
+                  SizedBox(width: widthOrHeight(context,choice:1)*0.05,),
+                  CircleWidget(width: widthOrHeight(context,choice:1),url: 'assets/images/Logo_of_Twitter.svg.webp',)
 
                 ],
               ),
-              SizedBox(height: height*0.05,),
+              SizedBox(height: widthOrHeight(context,choice:0)*0.05,),
               const Text('By continuing your confirm that you agree',
                 style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                 textAlign: TextAlign.center,
