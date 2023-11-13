@@ -1,4 +1,3 @@
-import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:evgo/widget/card_icon.dart';
 import 'package:evgo/widget/popular_widget.dart';
 import 'package:evgo/widget/special_for_you.dart';
