@@ -48,6 +48,7 @@ class DetailsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
+
                     onTap: () => Navigator.pop(context),
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: widthOrHeight(context,choice:1)*0.06),
