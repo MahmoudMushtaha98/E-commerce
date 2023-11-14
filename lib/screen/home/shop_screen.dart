@@ -109,7 +109,9 @@ class ShopScreen extends StatelessWidget {
               children: list,
             ),
             SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
-              buildRow(widthOrHeight(context,choice:1),'Special for you','See more'),
+              buildRow(widthOrHeight(context,choice:1),'Special for you','See more',() {
+
+              }),
             SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
             SizedBox(
               height: 100,
@@ -128,7 +130,9 @@ class ShopScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
-            buildRow(widthOrHeight(context,choice:1),'Popular Products','See more'),
+            buildRow(widthOrHeight(context,choice:1),'Popular Products','See more',() {
+
+            }),
             SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -144,12 +148,12 @@ class ShopScreen extends StatelessWidget {
     );
   }
 
-  Row buildRow(double width,String title,String subTitle) {
+  Row buildRow(double width,String title,String subTitle,VoidCallback callback) {
     return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                Text(title,style: TextStyle(fontSize: width*0.06,fontFamily: 'MyFont'),),
-                Text(subTitle,style: const TextStyle(color: Colors.grey,fontFamily: 'MyFont')),
+                TextButton(onPressed: callback, child: Text(subTitle,style: const TextStyle(color: Colors.grey,fontFamily: 'MyFont'))),
 
               ],
            );
