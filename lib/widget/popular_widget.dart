@@ -2,14 +2,16 @@
 import 'package:evgo/screen/home/details_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../model/popular_model.dart';
+
 class PopularProduct extends StatefulWidget {
-  const PopularProduct({
+   const PopularProduct({
     super.key,
-    required this.width, required this.path, required this.title, required this.price,
+    required this.width, required this.popularModel
   });
 
   final double width;
-  PopularModel popularModel;
+  final PopularModel popularModel;
 
   @override
   State<PopularProduct> createState() => _PopularProductState();
@@ -26,7 +28,7 @@ class _PopularProductState extends State<PopularProduct> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () => Navigator.of(context).pushNamed(DetailsScreen.screenRoute),
+          onTap: () => Navigator.of(context).pushNamed(DetailsScreen.screenRoute,),
           child: Container(
             width: widget.width*0.5,
             height: widget.width*0.5,
@@ -36,13 +38,13 @@ class _PopularProductState extends State<PopularProduct> {
                 borderRadius: const BorderRadius.all(Radius.circular(20))
             ),
             child: Image.asset(
-              widget.path,
+              widget.popularModel.path,
             ),
           ),
         ),
         SizedBox(
           width: widget.width*0.55,
-          child: Text(widget.title,
+          child: Text(widget.popularModel.title,
             style: const TextStyle(
                 color: Colors.black,
                 fontFamily: 'MyFont',
@@ -51,7 +53,7 @@ class _PopularProductState extends State<PopularProduct> {
         ),
         Row(
           children: [
-            Text(widget.price,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.deepOrange),),
+            Text(widget.popularModel.price,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.deepOrange),),
             SizedBox(width: widget.width*0.25,),
             GestureDetector(
               onTap: () {
@@ -78,4 +80,3 @@ class _PopularProductState extends State<PopularProduct> {
 }
 
 
-List

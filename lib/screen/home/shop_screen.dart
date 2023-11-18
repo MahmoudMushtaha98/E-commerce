@@ -1,9 +1,9 @@
+import 'package:evgo/model/popular_model.dart';
 import 'package:evgo/widget/card_icon.dart';
 import 'package:evgo/widget/popular_widget.dart';
 import 'package:evgo/widget/special_for_you.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../sign_up/complete_profile.dart';
 
 class ShopScreen extends StatelessWidget {
@@ -31,21 +31,27 @@ class ShopScreen extends StatelessWidget {
     List<PopularProduct> popular = [
       PopularProduct(
         width: widthOrHeight(context,choice:1),
-        path: 'assets/images/Image Popular Product 1.png',
-        title: 'Wireless Controller for PS4™',
-        price: "\$64.99",
+        popularModel: PopularModel(
+          path: 'assets/images/Image Popular Product 1.png',
+          title: 'Wireless Controller for PS4™',
+          price: "\$64.99"
+        ),
       ),
       PopularProduct(
         width: widthOrHeight(context,choice:1),
-        path: 'assets/images/Image Popular Product 2.png',
-        title: 'Nike Sport White - Man Paint',
-        price: "\$50.5",
+        popularModel: PopularModel(
+          path: 'assets/images/Image Popular Product 2.png',
+          title: 'Nike Sport White - Man Paint',
+          price: "\$50.5",
+        ),
       ),
       PopularProduct(
         width: widthOrHeight(context,choice:1),
-        path: 'assets/images/Image Popular Product 3.png',
-        title: 'Wireless Controller for PS4™',
-        price: "\$64.99",
+        popularModel: PopularModel(
+          path: 'assets/images/Image Popular Product 3.png',
+          title: 'Wireless Controller for PS4™',
+          price: "\$64.99",
+        ),
       ),
     ];
     return Scaffold(
