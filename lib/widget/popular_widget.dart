@@ -1,5 +1,6 @@
 
 import 'package:evgo/screen/home/details_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../model/popular_model.dart';
@@ -60,7 +61,13 @@ class _PopularProductState extends State<PopularProduct> {
                 setState(() {
                   iconColor=!iconColor;
                 });
-
+                if(iconColor){
+                  if(!fav.contains(widget.popularModel)) {
+                    fav.add(widget.popularModel);
+                  }
+                }else{
+                  fav.remove(widget.popularModel);
+                }
               },
               child: Container(
                 width: widget.width*0.075,
@@ -80,3 +87,4 @@ class _PopularProductState extends State<PopularProduct> {
 }
 
 
+List<PopularModel> fav = [];
