@@ -1,6 +1,5 @@
 
 import 'package:evgo/screen/home/details_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../model/popular_model.dart';

@@ -3,6 +3,8 @@ import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'favorite_screen.dart';
+
 
 
 class HomeScreen extends StatefulWidget {
@@ -53,11 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: [
          const ShopScreen(),
-        Container(
-          color: Colors.green,
-          alignment: Alignment.center,
-          child: const Text('Page 2'),
-        ),
+        const FavoriteScreen(),
         Container(
           color: Colors.blue,
           alignment: Alignment.center,
