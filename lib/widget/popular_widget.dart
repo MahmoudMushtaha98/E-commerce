@@ -9,9 +9,7 @@ class PopularProduct extends StatefulWidget {
   });
 
   final double width;
-  final String path;
-  final String title;
-  final String price;
+  PopularModel popularModel;
 
   @override
   State<PopularProduct> createState() => _PopularProductState();
@@ -78,3 +76,6 @@ class _PopularProductState extends State<PopularProduct> {
     );
   }
 }
+
+
+List

@@ -5,17 +5,28 @@ import 'package:flutter/material.dart';
 import '../../widget/color_widget.dart';
 import '../../widget/details_widget.dart';
 
-class DetailsScreen extends StatelessWidget {
-   DetailsScreen({Key? key}) : super(key: key);
+class DetailsScreen extends StatefulWidget {
+   const DetailsScreen({Key? key}) : super(key: key);
 
   static const screenRoute = '/details-screen';
 
+  @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
 
+class _DetailsScreenState extends State<DetailsScreen> {
   List<DetailsWidget> details = [
     const DetailsWidget(path: 'assets/images/ps4_console_white_1.png',),
     const DetailsWidget(path: 'assets/images/ps4_console_white_2.png',),
     const DetailsWidget(path: 'assets/images/ps4_console_white_3.png',),
     const DetailsWidget(path: 'assets/images/ps4_console_white_4.png',),
+  ];
+
+  List<String> path = [
+    'assets/images/ps4_console_white_1.png',
+    'assets/images/ps4_console_white_2.png',
+    'assets/images/ps4_console_white_3.png',
+    'assets/images/ps4_console_white_4.png'
   ];
 
   List<ColorWidget> colors = [
@@ -25,6 +36,8 @@ class DetailsScreen extends StatelessWidget {
     const ColorWidget(color: Colors.white,),
 
   ];
+
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +52,7 @@ class DetailsScreen extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(widthOrHeight(context,choice:0)*0.07),
-            child: Image.asset('assets/images/Image Popular Product 1.png'),
+            child: Image.asset(path[index]),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,10 +97,26 @@ class DetailsScreen extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(details.length, (index) {
+                    children: List.generate(details.length, (counter) {
                       return Row(
                         children: [
-                          details[index],
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                index = counter;
+                              });
+                            },
+                              child: (index==counter)?Container(
+                                  decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.deepOrange,
+                                  ),
+                                    borderRadius: BorderRadius.circular(widthOrHeight(context, choice: 1)*0.02)
+                                ),
+                                  child: details[counter],
+
+                              ):details[counter]
+                          ),
                           SizedBox(width: widthOrHeight(context,choice:1)*0.03,)
                         ],
                       );

@@ -31,11 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Column(
               children: [
-                Container(
-                  width: widthOrHeight(context,choice:1),
-                  height: widthOrHeight(context,choice:0)*0.1,
-                  color: Colors.grey,
-                ),
+        Container(
+        width: widthOrHeight(context,choice:1),
+          height: widthOrHeight(context,choice:0)*0.06,
+          color: Colors.grey,
+        ),
                 SizedBox(height: widthOrHeight(context,choice:0)*0.05,),
                 const Text('TOKOTO', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.deepOrange)),
                 const Text("Welcome to Tokoto, let's shop!",style: TextStyle(color: Colors.grey),),
