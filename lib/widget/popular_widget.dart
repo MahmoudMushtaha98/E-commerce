@@ -75,7 +75,7 @@ class _PopularProductState extends State<PopularProduct> {
                     color: Colors.pink[50],
                     shape: BoxShape.circle
                 ),
-                child: Icon(size: widget.width*0.045,Icons.favorite,color: iconColor?Colors.redAccent:Colors.grey,)
+                child: Icon(size: widget.width*0.045,Icons.favorite,color: (iconColor)?Colors.red:Colors.grey,)
               ),
             )
           ],
@@ -84,6 +84,7 @@ class _PopularProductState extends State<PopularProduct> {
     );
   }
 }
+
 
 
 List<PopularModel> fav = [];
