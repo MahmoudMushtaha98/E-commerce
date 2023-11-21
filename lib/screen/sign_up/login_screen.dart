@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:evgo/screen/home/home_screen.dart';
 import 'package:evgo/screen/sign_up/forgot_screen.dart';
@@ -9,7 +8,6 @@ import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import '../../model/items_model.dart';
 
 String continueButton = 'continue';
@@ -30,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final dio = Dio();
   List itemsDetails = [];
 
-  void httpReq()async{
+  Future<void> httpReq()async{
     final response =await dio.get('https://fakestoreapi.com/products');
     itemsDetails = response.data;
     populars.clear();
@@ -104,9 +102,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
-              ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1), callBack: () {
-                httpReq();
+              ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1), callBack: () async{
+                await httpReq();
+                if(mounted){
                 Navigator.of(context).pushNamed(HomeScreen.screenRoute);
+                }
               },),
             ],
           ),

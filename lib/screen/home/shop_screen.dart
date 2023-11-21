@@ -1,4 +1,4 @@
-import 'package:evgo/model/popular_model.dart';
+import 'package:evgo/screen/home/details_screen.dart';
 import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:evgo/widget/card_icon.dart';
 import 'package:evgo/widget/popular_widget.dart';
@@ -7,12 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../sign_up/complete_profile.dart';
 
-class ShopScreen extends StatelessWidget {
+class ShopScreen extends StatefulWidget {
    const ShopScreen({Key? key}) : super(key: key);
 
    static const screenRoute = '/shop-screen';
 
+  @override
+  State<ShopScreen> createState() => _ShopScreenState();
+}
 
+class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
 
@@ -134,7 +138,47 @@ class ShopScreen extends StatelessWidget {
                 children: List.generate(populars.length, (index){
                   return Row(
                     children: [
-                      PopularProduct(path: populars[index].image, title: populars[index].title, price: populars[index].price),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context, DetailsScreen.screenRoute,
+                            arguments: {
+                              'image':populars[index].image,
+                              'title':populars[index].title,
+                              'description':populars[index].description,
+                              'fav':liked[index],
+                              'rate': populars[index].rate
+                            }
+                          );
+                        },
+                          child: Stack(
+                            children: [
+                              PopularProduct(path: populars[index].image, title: populars[index].title, price: populars[index].price),
+                              Positioned(
+                                bottom: widthOrHeight(context, choice: 0)*0.007,
+                                  right: 0,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        liked[index]=!liked[index];
+                                      });
+                                    },
+                                    child: Container(
+                                    width: widthOrHeight(context, choice: 1)*0.1,
+                                    height: widthOrHeight(context, choice: 0)*0.03,
+                                    decoration: BoxDecoration(
+                                    color: (liked[index])?Colors.pink.withOpacity(0.2):Colors.grey.withOpacity(0.2),
+                                    shape: BoxShape.circle
+                                                                    ),
+                                      child: Icon(Icons.favorite,
+                                        size: widthOrHeight(context, choice: 1)*0.04,
+                                        color: (liked[index])?Colors.pink:Colors.grey.withOpacity(0.2),
+                                      ),
+                                      ),
+                                  )
+                              )
+                            ],
+                          )),
                       SizedBox(width: widthOrHeight(context, choice: 1)*0.1,)
                     ],
                   );
@@ -158,11 +202,6 @@ class ShopScreen extends StatelessWidget {
               ],
            );
   }
-
-
-
-
-
 
   Container buildCircleContainer(double width, double height,String path) {
     return Container(

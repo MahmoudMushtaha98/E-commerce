@@ -15,6 +15,8 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+
+
   List<DetailsWidget> details = [
     const DetailsWidget(path: 'assets/images/ps4_console_white_1.png',),
     const DetailsWidget(path: 'assets/images/ps4_console_white_2.png',),
@@ -41,6 +43,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Map modelArgument = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>;
+    modelArgument.forEach((key, value) {
+      print(value);
+    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
@@ -50,9 +56,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
       ),
       body: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.all(widthOrHeight(context,choice:0)*0.07),
-            child: Image.asset(path[index]),
+          Container(
+            padding: EdgeInsets.all(8),
+            height: widthOrHeight(context, choice: 0)*0.451,
+            width: double.infinity,
+            child: Image.network(
+                modelArgument['image'],
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,7 +95,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text('4.8',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                         Text(modelArgument['rate'].toString(),style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                         setIcon('assets/icons/Star Icon.svg',)
                       ],
                     ),
@@ -95,33 +105,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
               Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(details.length, (counter) {
-                      return Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                index = counter;
-                              });
-                            },
-                              child: (index==counter)?Container(
-                                  decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.deepOrange,
-                                  ),
-                                    borderRadius: BorderRadius.circular(widthOrHeight(context, choice: 1)*0.02)
-                                ),
-                                  child: details[counter],
-
-                              ):details[counter]
-                          ),
-                          SizedBox(width: widthOrHeight(context,choice:1)*0.03,)
-                        ],
-                      );
-                    }),
-                  ),
                   SizedBox(height: widthOrHeight(context,choice:0)*0.02,),
                   Container(
                     width: double.infinity,
@@ -135,7 +118,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: widthOrHeight(context,choice:1)*0.07,top: widthOrHeight(context,choice:1)*0.07),
-                          child: Text('Wireless Controller for PS4™',style: TextStyle(fontFamily: 'MyFont',fontSize: widthOrHeight(context,choice:1)*0.05),),
+                          child: Text(modelArgument['title'],style: TextStyle(fontFamily: 'MyFont',fontSize: widthOrHeight(context,choice:1)*0.05),),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -144,10 +127,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               width: widthOrHeight(context,choice:1)*0.18,
                               height: widthOrHeight(context,choice:0)*0.07,
                               decoration:  BoxDecoration(
-                                color: Colors.pink.withOpacity(0.2),
+                                color: (modelArgument['fav'])?Colors.pink.withOpacity(0.2):Colors.grey.withOpacity(0.2),
                                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))
                               ),
-                              child: const Icon(Icons.favorite,color: Colors.red,),
+                              child:  Icon(Icons.favorite,color:(modelArgument['fav'])? Colors.red:Colors.grey),
                             )
                           ],
                         ),
@@ -157,10 +140,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Wireless Controller for PS4™ gives you what '
-                                  'you want in your gaming from over precision control'
-                                  ' your games to sharing',
-                                style: TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
+                               Text(modelArgument['description'],
+                                style: const TextStyle(color: Colors.grey,fontFamily: 'MyFont'),
                                 maxLines: 3,
                                 overflow:  TextOverflow.ellipsis,
                               ),
