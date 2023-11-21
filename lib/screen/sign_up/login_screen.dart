@@ -1,4 +1,5 @@
 
+import 'package:dio/dio.dart';
 import 'package:evgo/screen/home/home_screen.dart';
 import 'package:evgo/screen/sign_up/forgot_screen.dart';
 import 'package:evgo/screen/sign_up/register_screen.dart';
@@ -6,7 +7,10 @@ import 'package:evgo/widget/buildtextformfield.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/circle_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../../model/items_model.dart';
 
 String continueButton = 'continue';
 
@@ -22,6 +26,35 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isChecked=false;
+
+  final dio = Dio();
+  List itemsDetails = [];
+
+  void httpReq()async{
+    final response =await dio.get('https://fakestoreapi.com/products');
+    itemsDetails = response.data;
+    populars.clear();
+    if(mounted) {
+      if (kDebugMode) {
+        for (var element in itemsDetails) {
+          populars.add(
+              ItemsModel(id: element['id'],
+                  title: element['title'],
+                  price: element['price'].toString(),
+                  description: element['description'],
+                  category: element['category'],
+                  image: element['image'],
+                  rate: element['rating']['rate'],
+                count: element['rating']['count']
+              )
+          );
+          liked.add(false);
+        }
+      }
+    }
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: widthOrHeight(context,choice:0)*0.03,),
               ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1), callBack: () {
+                httpReq();
                 Navigator.of(context).pushNamed(HomeScreen.screenRoute);
               },),
             ],
@@ -110,3 +144,5 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 
+List<ItemsModel> populars = [];
+List<bool> liked = [];

@@ -3,15 +3,16 @@ import 'package:evgo/screen/home/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../model/popular_model.dart';
+import '../screen/home/home_screen.dart';
 
 class PopularProduct extends StatefulWidget {
    const PopularProduct({
-    super.key,
-    required this.width, required this.popularModel
+    super.key, required this.path, required this.title, required this.price,
   });
 
-  final double width;
-  final PopularModel popularModel;
+   final String path;
+   final String title;
+   final String price;
 
   @override
   State<PopularProduct> createState() => _PopularProductState();
@@ -24,63 +25,26 @@ class _PopularProductState extends State<PopularProduct> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () => Navigator.of(context).pushNamed(DetailsScreen.screenRoute,),
-          child: Container(
-            width: widget.width*0.5,
-            height: widget.width*0.5,
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: const BorderRadius.all(Radius.circular(20))
-            ),
-            child: Image.asset(
-              widget.popularModel.path,
+    return SizedBox(
+      height: widthOrHeight(context, choice: 0)*0.36,
+      width: widthOrHeight(context, choice: 1)*0.34,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Image.network(
+
+              widget.path,
+              fit: BoxFit.cover,
             ),
           ),
-        ),
-        SizedBox(
-          width: widget.width*0.55,
-          child: Text(widget.popularModel.title,
-            style: const TextStyle(
-                color: Colors.black,
-                fontFamily: 'MyFont',
-                fontSize: 16
-            ),),
-        ),
-        Row(
-          children: [
-            Text(widget.popularModel.price,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.deepOrange),),
-            SizedBox(width: widget.width*0.25,),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  iconColor=!iconColor;
-                });
-                if(iconColor){
-                  if(!fav.contains(widget.popularModel)) {
-                    fav.add(widget.popularModel);
-                  }
-                }else{
-                  fav.remove(widget.popularModel);
-                }
-              },
-              child: Container(
-                width: widget.width*0.075,
-                height: widget.width*0.1,
-                decoration: BoxDecoration(
-                    color: Colors.pink[50],
-                    shape: BoxShape.circle
-                ),
-                child: Icon(size: widget.width*0.045,Icons.favorite,color: (iconColor)?Colors.red:Colors.grey,)
-              ),
-            )
-          ],
-        )
-      ],
+          SizedBox(height: widthOrHeight(context, choice: 0)*0.01,),
+          Expanded(flex: 1,child: Text(widget.title,maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontFamily: 'MyFont',fontSize: widthOrHeight(context, choice: 1)*0.04),)),
+          SizedBox(height: widthOrHeight(context, choice: 0)*0.01,),
+          Expanded(flex: 1,child: Text("\$ ${widget.price}",style: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold,fontFamily: 'MyFont',fontSize: widthOrHeight(context, choice: 1)*0.04)))
+        ],
+      ),
     );
   }
 }
