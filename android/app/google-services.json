@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "55921185946",
+    "project_id": "e-commerce-68732",
+    "storage_bucket": "e-commerce-68732.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55921185946:android:b84027636619b1894e7b23",
+        "android_client_info": {
+          "package_name": "com.example.evgo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEhm7hatNL8R_OWm--HcwogOna8TGgvHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

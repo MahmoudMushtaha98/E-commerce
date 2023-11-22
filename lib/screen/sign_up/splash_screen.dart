@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,12 +14,16 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+
+  Random a = Random();
+
   @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginScreen(),));
-    });
+    }
+    );
   }
 
 

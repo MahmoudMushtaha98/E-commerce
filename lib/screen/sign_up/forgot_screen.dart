@@ -29,7 +29,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               ),
             ),
           ],),
-          BuildTextFormField(width: widthOrHeight(context,choice:1),hintText: 'Email',iconData:Icons.email_outlined,label:'Enter your email'),
+          // BuildTextFormField(width: widthOrHeight(context,choice:1),hintText: 'Email',iconData:Icons.email_outlined,label:'Enter your email'),
           ButtonWidget(text: continueButton,width: widthOrHeight(context,choice:1), callBack: () {
 
           },),
@@ -38,8 +38,8 @@ class ForgotPasswordScreen extends StatelessWidget {
             children: [
               const Text("Don't have an account? ",style: TextStyle(color: Colors.grey)),
               InkWell(
+                onTap: () => Navigator.pushNamed(context, RegisterScreen.screenRoute),
                 child: const Text("Sign Up",style: TextStyle(color: Colors.deepOrange)),
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),)),
               ),
             ],
           ),

@@ -15,8 +15,8 @@ Map<String, WidgetBuilder> routes() {
     LoginScreen.screenRoute : (context) => const LoginScreen(),
     HomeScreen.screenRoute : (context) => const HomeScreen(),
     ShopScreen.screenRoute : (context) => const ShopScreen(),
-    RegisterScreen.screenRoute : (context) => const RegisterScreen(),
-    CompleteProfileScreen.screenRoute : (context) => const CompleteProfileScreen(),
+    RegisterScreen.screenRoute : (context) => RegisterScreen(),
+    CompleteProfileScreen.screenRoute : (context) => CompleteProfileScreen(),
     OtpScreen.screenRoute : (context) => const OtpScreen(),
     ForgotPasswordScreen.screenRoute : (context) => const ForgotPasswordScreen(),
     DetailsScreen.screenRoute : (context) =>  DetailsScreen()
