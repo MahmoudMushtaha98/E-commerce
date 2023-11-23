@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:evgo/screen/home/details_screen.dart';
 import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:evgo/widget/card_icon.dart';
@@ -5,6 +6,7 @@ import 'package:evgo/widget/popular_widget.dart';
 import 'package:evgo/widget/special_for_you.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../model/items_model.dart';
 import '../sign_up/complete_profile.dart';
 
 class ShopScreen extends StatefulWidget {
@@ -17,9 +19,46 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
+
+
+
+  final dio = Dio();
+  List itemsDetails = [];
+
+
+  Future<void> httpReq() async {
+    final response = await dio.get('https://fakestoreapi.com/products');
+
+    itemsDetails = response.data;
+    populars.clear();
+    if (mounted) {
+      setState(() {
+        for (var element in itemsDetails) {
+          populars.add(ItemsModel(
+              id: element['id'],
+              title: element['title'],
+              price: element['price'].toString(),
+              description: element['description'],
+              category: element['category'],
+              image: element['image'],
+              rate: element['rating']['rate'],
+              count: element['rating']['count']));
+          liked.add(false);
+        }
+      });
+
+    }
+  }
+
+
+  @override
+  void initState() {
+    httpReq();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-
     List<CardOfIcon> list = [
       CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Flash Icon.svg', textOfCard: 'Flash Deal'),
       CardOfIcon(width: widthOrHeight(context,choice:1), path: 'assets/icons/Bill Icon.svg', textOfCard: 'Bill'),
@@ -223,3 +262,7 @@ Widget setIcon(String path){
 
   );
 }
+
+
+List<ItemsModel> populars = [];
+List<bool> liked = [];

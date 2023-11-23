@@ -33,6 +33,7 @@ class CompleteProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final modalRout = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       body: ListView(
         children: [

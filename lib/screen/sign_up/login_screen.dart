@@ -28,30 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _password = TextEditingController();
   bool isChecked = false;
 
-  final dio = Dio();
-  List itemsDetails = [];
-
-  Future<void> httpReq() async {
-    final response = await dio.get('https://fakestoreapi.com/products');
-    itemsDetails = response.data;
-    populars.clear();
-    if (mounted) {
-      if (kDebugMode) {
-        for (var element in itemsDetails) {
-          populars.add(ItemsModel(
-              id: element['id'],
-              title: element['title'],
-              price: element['price'].toString(),
-              description: element['description'],
-              category: element['category'],
-              image: element['image'],
-              rate: element['rating']['rate'],
-              count: element['rating']['count']));
-          liked.add(false);
-        }
-      }
-    }
-  }
 
   bool submitValid(){
     if(_formKeyEmail.currentState!.validate() && _formKeyPassword.currentState!.validate()){
@@ -169,10 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: widthOrHeight(context, choice: 1),
                 callBack: () async {
                   if(submitValid()) {
-                    await httpReq();
-                  if (mounted) {
-                    Navigator.of(context).pushNamed(HomeScreen.screenRoute);
-                  }
+                    Navigator.of(context).pushNamed(HomeScreen.screenRoute,);
                   }
                 },
               ),
@@ -231,5 +204,5 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-List<ItemsModel> populars = [];
-List<bool> liked = [];
+
+

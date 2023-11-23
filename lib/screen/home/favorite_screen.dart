@@ -1,4 +1,5 @@
 import 'package:evgo/model/items_model.dart';
+import 'package:evgo/screen/home/shop_screen.dart';
 import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -79,11 +80,4 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 }
 
-// IconButton(
-// onPressed: () {
-// setState(() {
-// liked[popFav[index].id-1] = !liked[popFav[index].id-1];
-// });
-// },
-// icon: Icon(Icons.favorite,color: (liked[popFav[index].id-1])?Colors.pink:Colors.grey,),
-// )
+

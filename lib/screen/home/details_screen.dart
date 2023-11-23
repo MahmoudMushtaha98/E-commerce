@@ -17,19 +17,9 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
 
 
-  List<DetailsWidget> details = [
-    const DetailsWidget(path: 'assets/images/ps4_console_white_1.png',),
-    const DetailsWidget(path: 'assets/images/ps4_console_white_2.png',),
-    const DetailsWidget(path: 'assets/images/ps4_console_white_3.png',),
-    const DetailsWidget(path: 'assets/images/ps4_console_white_4.png',),
-  ];
+  
 
-  List<String> path = [
-    'assets/images/ps4_console_white_1.png',
-    'assets/images/ps4_console_white_2.png',
-    'assets/images/ps4_console_white_3.png',
-    'assets/images/ps4_console_white_4.png'
-  ];
+
 
   List<ColorWidget> colors = [
     const ColorWidget(color: Colors.red,),
