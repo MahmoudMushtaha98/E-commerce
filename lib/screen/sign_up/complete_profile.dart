@@ -1,31 +1,58 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evgo/screen/sign_up/otp_screen.dart';
 import 'package:evgo/widget/buildtextformfield.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'login_screen.dart';
 
-class CompleteProfileScreen extends StatelessWidget {
+class CompleteProfileScreen extends StatefulWidget {
   CompleteProfileScreen({Key? key}) : super(key: key);
 
   static const screenRoute = '/complete-screen';
 
+  @override
+  State<CompleteProfileScreen> createState() => _CompleteProfileScreenState();
+}
+
+class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   final TextEditingController _fName = TextEditingController();
+
   final TextEditingController _lName = TextEditingController();
+
   final TextEditingController _phone = TextEditingController();
+
   final TextEditingController _address = TextEditingController();
+
   final _formFname = GlobalKey<FormState>();
+
   final _formLname = GlobalKey<FormState>();
+
   final _formPhone = GlobalKey<FormState>();
+
   final _formAddress = GlobalKey<FormState>();
 
-  bool submitForm() {
+  final _auth = FirebaseAuth.instance;
+
+  final _firestore = FirebaseFirestore.instance;
+
+  late String _email;
+
+  late String _password;
+
+  Future<bool> submitForm() async{
     if (_formFname.currentState!.validate() &&
         _formLname.currentState!.validate() &&
         _formPhone.currentState!.validate() &&
         _formAddress.currentState!.validate()) {
-      return true;
+      if(await registration()) {
+        return true;
+      }else{
+        return false;
+      }
     } else {
       return false;
     }
@@ -33,7 +60,9 @@ class CompleteProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final modalRout = ModalRoute.of(context)!.settings.arguments;
+    final modalRout = ModalRoute.of(context)!.settings.arguments as Map;
+    _email=modalRout['email'];
+    _password=modalRout['password'];
     return Scaffold(
       body: ListView(
         children: [
@@ -146,9 +175,11 @@ class CompleteProfileScreen extends StatelessWidget {
               ButtonWidget(
                 text: continueButton,
                 width: widthOrHeight(context, choice: 1),
-                callBack: () {
-                  if (submitForm()) {
-                    Navigator.of(context).pushNamed(OtpScreen.screenRoute);
+                callBack: () async{
+                  if (await submitForm()) {
+                    if(mounted) {
+                      Navigator.of(context).pushNamed(OtpScreen.screenRoute);
+                    }
                   }
                 },
               ),
@@ -175,6 +206,29 @@ class CompleteProfileScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<bool> registration() async{
+    try{
+      await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
+      print('================before firestore');
+      await _firestore.collection('Registration').add({
+        'Email':_email,
+        'password':_password,
+        'First name':_fName.text,
+        'Last name': _lName.text,
+        'Phone':_phone.text,
+        'address':_address.text
+      });
+      return true;
+    }on FirebaseException catch(e){
+      if (kDebugMode) {
+        print(e.message);
+      }
+      return false;
+    }
+
+
   }
 }
 

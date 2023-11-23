@@ -11,7 +11,7 @@ import 'complete_profile.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
-  RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
   static const screenRoute = '/register-screen';
 
@@ -147,10 +147,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: continueButton,
                   width: widthOrHeight(context, choice: 1),
                   callBack: () async{
-                    load = true;
+                    setState(() {
+                      load = false;
+                    });
                     if(await submitForm()) {
                       if(mounted) {
-                        load = false;
+                        setState(() {
+                          load = false;
+                        });
                         Navigator.of(context)
                         .pushNamed(CompleteProfileScreen.screenRoute,arguments: {
                           'email':_email.text,
@@ -215,9 +219,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     bool a= false;
     try{
       await _auth.signInWithEmailAndPassword(email: _email.text, password: _password.text);
-
     }on FirebaseAuthException catch(e){
-      if(e.code.contains('INVALID_LOGIN_CREDENTIALS')){
+      if(e.code.contains('invalid-credential')){
         a=true;
       }else {
         a=false;
