@@ -1,10 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../sign_up/complete_profile.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+   const ProfileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +74,19 @@ class ProfileScreen extends StatelessWidget {
                       IconButton(onPressed: () {
                         Navigator.pop(context);
                       }, icon: const Icon(Icons.arrow_back_ios_sharp)),
-                      IconButton(onPressed: () {
-                        Navigator.pop(context);
+                      IconButton(onPressed: ()async {
+                        try{
+                          if (_auth.currentUser != null) {
+                            await _auth.signOut();
+                          }
+                        }catch(e){
+                          if (kDebugMode) {
+                            print(e);
+                          }
+                        }
+                        if(mounted) {
+                          Navigator.pop(context);
+                        }
                       }, icon: const Icon(Icons.logout_outlined)),
                     ],
                   ),

@@ -93,6 +93,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 height: widthOrHeight(context, choice: 0) * 0.06,
               ),
               BuildTextFormField(
+                obscureText: false,
                 controller: _fName,
                 formKey: _formFname,
                 width: widthOrHeight(context, choice: 1),
@@ -113,6 +114,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 height: widthOrHeight(context, choice: 0) * 0.04,
               ),
               BuildTextFormField(
+                obscureText: false,
                 formKey: _formLname,
                 controller: _lName,
                 width: widthOrHeight(context, choice: 1),
@@ -133,6 +135,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 height: widthOrHeight(context, choice: 0) * 0.04,
               ),
               BuildTextFormField(
+                obscureText: false,
                 controller: _phone,
                 formKey: _formPhone,
                 width: widthOrHeight(context, choice: 1),
@@ -153,6 +156,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 height: widthOrHeight(context, choice: 0) * 0.04,
               ),
               BuildTextFormField(
+                obscureText: false,
                 formKey: _formAddress,
                 controller: _address,
                 width: widthOrHeight(context, choice: 1),
@@ -211,7 +215,6 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   Future<bool> registration() async{
     try{
       await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
-      print('================before firestore');
       await _firestore.collection('Registration').add({
         'Email':_email,
         'password':_password,

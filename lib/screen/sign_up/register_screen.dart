@@ -86,6 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: widthOrHeight(context, choice: 0) * 0.06,
                 ),
                 BuildTextFormField(
+                  obscureText: false,
                   controller: _email,
                   callback: (value) {
                     if (value!.isEmpty) {
@@ -106,6 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: widthOrHeight(context, choice: 0) * 0.03,
                 ),
                 BuildTextFormField(
+                  obscureText: true,
                     controller: _password,
                     callback: (value) {
                       if (value!.isEmpty) {
@@ -125,6 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: widthOrHeight(context, choice: 0) * 0.03,
                 ),
                 BuildTextFormField(
+                  obscureText: true,
                     controller: _rePassword,
                     callback: (value) {
                       if (value!.isEmpty) {

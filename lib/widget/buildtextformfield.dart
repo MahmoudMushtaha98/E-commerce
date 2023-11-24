@@ -9,8 +9,9 @@ class BuildTextFormField extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final String? Function(String?)? callback;
   final TextEditingController controller ;
+  final bool obscureText;
    const BuildTextFormField({
-    super.key, required this.width, required this.hintText, required this.label, required this.iconData, required this.formKey, this.callback, required this.controller,
+    super.key, required this.width, required this.hintText, required this.label, required this.iconData, required this.formKey, this.callback, required this.controller, required this.obscureText,
   });
 
 
@@ -24,6 +25,7 @@ class BuildTextFormField extends StatelessWidget {
       child: SizedBox(
         width: width*0.9,
         child: TextFormField(
+          obscureText: obscureText,
           controller: controller,
           validator: callback,
           decoration: InputDecoration(
