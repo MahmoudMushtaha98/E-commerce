@@ -44,17 +44,24 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+
   bool load = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: myAppBar(context),
       body: ModalProgressHUD(
         inAsyncCall: load,
         child: ListView(
           children: [
-            HeaderWidget(
-                width: widthOrHeight(context, choice: 1),
-                height: widthOrHeight(context, choice: 0)),
+            Container(
+              alignment: Alignment.topLeft,
+              width: double.infinity,
+              child: IconButton(onPressed: () {
+                Navigator.pop(context);
+              }, icon: const Icon(Icons.arrow_back,color: Colors.black,)),
+            ),
+            SizedBox(height: widthOrHeight(context, choice: 0)*0.03,),
             Column(
               children: [
                 SizedBox(
@@ -229,6 +236,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+
+
  Future<bool> loginGenerate() async{
     try{
       await _auth.signInWithEmailAndPassword(email: _email.text, password: _password.text);
@@ -241,3 +250,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
 
+AppBar myAppBar(BuildContext context) {
+  return AppBar(
+    backgroundColor: Colors.grey,
+    automaticallyImplyLeading: false,
+    toolbarHeight: widthOrHeight(context, choice: 0)*0.03 ,
+  );
+}

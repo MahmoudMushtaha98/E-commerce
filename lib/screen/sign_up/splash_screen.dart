@@ -1,5 +1,4 @@
-import 'dart:async';
-import 'dart:math';
+import 'package:cupertino_onboarding/cupertino_onboarding.dart';
 import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,44 +12,43 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
-  Random a = Random();
-
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginScreen(),));
-    }
-    );
-  }
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Column(
-          children: [
-            Column(
-              children: [
-        Container(
-        width: widthOrHeight(context,choice:1),
-          height: widthOrHeight(context,choice:0)*0.06,
-          color: Colors.grey,
-        ),
-                SizedBox(height: widthOrHeight(context,choice:0)*0.05,),
-                const Text('TOKOTO', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.deepOrange)),
-                const Text("Welcome to Tokoto, let's shop!",style: TextStyle(color: Colors.grey),),
-                SizedBox(height: widthOrHeight(context,choice:0)*0.1,)
-              ],
-            ),
-            Image.asset('assets/images/splash_1.png'),
-
-          ],
-        )
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+      ),
+      body: CupertinoOnboarding(
+        onPressedOnLastPage: () =>
+            Navigator.pushNamed(context, LoginScreen.screenRoute),
+        pages: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    'TOKOTO',
+                    style:
+                    TextStyle(color: Colors.deepOrange, fontFamily: 'MyFont',fontSize: widthOrHeight(context, choice: 1)*0.1),
+                  ),
+                  Text(
+                    'Welcom to Tokoto, lets shop!',
+                    style:
+                    TextStyle(color: Colors.grey, fontFamily: 'MyFont',fontSize: widthOrHeight(context, choice: 1)*0.045),
+                  ),
+                ],
+              ),
+              Image.asset('assets/images/splash_1.png'),
+            ],
+          ),
+          Image.asset('assets/images/splash_2.png'),
+          Image.asset('assets/images/splash_3.png'),
+        ],
+        bottomButtonColor: Colors.deepOrange,
+        bottomButtonChild:
+            const Text('Continue', style: TextStyle(fontFamily: 'MyFont')),
+      ),
     );
   }
 }

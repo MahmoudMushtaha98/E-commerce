@@ -1,5 +1,4 @@
 import 'package:evgo/screen/sign_up/register_screen.dart';
-import 'package:evgo/widget/buildtextformfield.dart';
 import 'package:evgo/widget/button_widget.dart';
 import 'package:evgo/widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +14,17 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: myAppBar(context),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          HeaderWidget(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0)),
+          Container(
+            alignment: Alignment.topLeft,
+            width: double.infinity,
+            child: IconButton(onPressed: () {
+              Navigator.pop(context);
+            }, icon: const Icon(Icons.arrow_back,color: Colors.black,)),
+          ),
           Column(children: [
             const Text('Forgot Password',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
             SizedBox(

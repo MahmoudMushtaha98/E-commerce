@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 
 Map<String, WidgetBuilder> routes() {
   return {
-    '/':(context) => const SplashScreen(),
+    '/':(context) =>  const SplashScreen(),
     LoginScreen.screenRoute : (context) => const LoginScreen(),
     HomeScreen.screenRoute : (context) => const HomeScreen(),
     ShopScreen.screenRoute : (context) => const ShopScreen(),
-    RegisterScreen.screenRoute : (context) => RegisterScreen(),
+    RegisterScreen.screenRoute : (context) => const RegisterScreen(),
     CompleteProfileScreen.screenRoute : (context) => CompleteProfileScreen(),
     OtpScreen.screenRoute : (context) => const OtpScreen(),
     ForgotPasswordScreen.screenRoute : (context) => const ForgotPasswordScreen(),
-    DetailsScreen.screenRoute : (context) =>  DetailsScreen()
+    DetailsScreen.screenRoute : (context) =>  const DetailsScreen()
   };
 }

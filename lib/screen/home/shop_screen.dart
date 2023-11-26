@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:evgo/screen/home/details_screen.dart';
-import 'package:evgo/screen/sign_up/login_screen.dart';
 import 'package:evgo/widget/card_icon.dart';
 import 'package:evgo/widget/popular_widget.dart';
 import 'package:evgo/widget/special_for_you.dart';
@@ -28,7 +27,6 @@ class _ShopScreenState extends State<ShopScreen> {
 
   Future<void> httpReq() async {
     final response = await dio.get('https://fakestoreapi.com/products');
-
     itemsDetails = response.data;
     populars.clear();
     if (mounted) {
@@ -50,12 +48,13 @@ class _ShopScreenState extends State<ShopScreen> {
     }
   }
 
-
-  @override
+@override
   void initState() {
-    httpReq();
-    super.initState();
+httpReq();
+super.initState();
   }
+
+
 
   @override
   Widget build(BuildContext context) {

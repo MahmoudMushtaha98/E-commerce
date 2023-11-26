@@ -64,11 +64,16 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     _email=modalRout['email'];
     _password=modalRout['password'];
     return Scaffold(
+      appBar: myAppBar(context),
       body: ListView(
         children: [
-          HeaderWidget(
-              width: widthOrHeight(context, choice: 1),
-              height: widthOrHeight(context, choice: 0)),
+          Container(
+            alignment: Alignment.topLeft,
+            width: double.infinity,
+            child: IconButton(onPressed: () {
+              Navigator.pop(context);
+            }, icon: const Icon(Icons.arrow_back,color: Colors.black,)),
+          ),
           Column(
             children: [
               const SizedBox(

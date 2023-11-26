@@ -21,6 +21,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     for (var element in liked) {
       if (element) {
         popFav.add(populars[index]);
+        counter++;
       }
       index++;
     }
@@ -81,3 +82,5 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 }
 
 
+List<ItemsModel> popFav = [];
+int counter = 0;

@@ -51,15 +51,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: myAppBar(context),
       body: ModalProgressHUD(
         inAsyncCall: load,
         child: ListView(
           children: [
-            HeaderWidget(
-                width: widthOrHeight(context, choice: 1),
-                height: widthOrHeight(context, choice: 0)),
             Column(
               children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  width: double.infinity,
+                  child: IconButton(onPressed: () {
+                    Navigator.pop(context);
+                  }, icon: const Icon(Icons.arrow_back,color: Colors.black,)),
+                ),
                 const SizedBox(
                   height: 30,
                 ),

@@ -13,10 +13,17 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: myAppBar(context),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          HeaderWidget(width: widthOrHeight(context,choice:1), height: widthOrHeight(context,choice:0)),
+          Container(
+            alignment: Alignment.topLeft,
+            width: double.infinity,
+            child: IconButton(onPressed: () {
+              Navigator.pop(context);
+            }, icon: const Icon(Icons.arrow_back,color: Colors.black,)),
+          ),
           Column(
             children: [
               const Text('OTP Verfication',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'Myfont')),
